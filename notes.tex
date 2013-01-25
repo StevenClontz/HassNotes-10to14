@@ -47,6 +47,8 @@
 \newcommand{\<}{\left<}
 \renewcommand{\>}{\right>}
 
+\newcommand{\Arctan}{\text{Arctan}}
+
 
 \begin{document}
 
@@ -641,271 +643,172 @@ v_1 & v_2 \\
   
   \centerline{\bf 11.3 Arc Length in Space}
   
-  As we did with arcs in two dimensions (in Cal II), we may define the length of curved arcs in higher dimensions using integrals.
-  
     \begin{itemize}
-    \item Arc Length along a Space Curve (pg. 678-9)
-      \begin{itemize}
-      \item The \textbf{length} of a smooth curve $\vec{r}(t) = \<x(t),y(t),z(t)\>$ on the time interval $a \leq t \leq b$ may be approximated by \[L \approx \sum_{i=0}^n |\vec{r}(t_i+\Delta{t})-\vec{r}(t_i)|=\sum_{i=1}^n \left|\frac{\vec{r}(t_i+\Delta{t})-\vec{r}(t_i)}{\Delta{t}}\right|\Delta{t}\]
-      \item Using the idea of a Riemann sum, we may then define \[L = \int_a^b \left|\lim_{\Delta{t}\to0}\frac{\vec{r}(t+\Delta{t})-\vec{r}(t)}{\Delta{t}}\right| \dvar{t} = \int_a^b |\vec{v}(t)| \dvar{t}\]
-      \item If we choose a base time $t_0$, we may find a \textbf{directed distance} function (or \textbf{arc length parameter}) \[s(t) = \int_0^t |\vec{v}(\tau)|d\tau\] which gives the distance between the point at time $0$ to any point with time $t$.  If $t>0$ the directed distance is positive and if $t<0$ the directed distance is negative.
-      \end{itemize}
-    \item Speed on a Smooth Curve (pg. 680)
-      \begin{itemize}
-      \item By definition, if $\vec{r}(t)$ is smooth, then $\vec{v}(t)$ must be continuous.
-      \item Thus by the Fundamental Theorem of Calculus, \[\frac{ds}{dt} = |\vec{v}(t)|\]
-      \end{itemize}
-    \item Unit Tangent Vector $\vec{T}$ (pg. 680-1)
-      \begin{itemize}
-      \item In 11.1 we learned that $\vec{r}'(t)$ (which equals $\vec{v}(t)$) gives a tangent vector to a curve.
-      \item Thus the \textbf{unit tangent vector} $\vec{T}$ may be given by \[\vec{T} = \frac{\vec{v}}{|\vec{v}|}\]
-      \item We may also think of $\vec{T}$ as the derivative of the position function with respect to the arclength parameter. Note \[\vec{T} = \frac{\vec{v}}{|\vec{v}|}=\frac{d\vec{r}/dt}{ds/dt} = \frac{d\vec{r}}{dt}\frac{dt}{ds} = \frac{d\vec{r}}{ds} \]
-      \end{itemize}
-    \item \textbf{Suggested Exercises for 11.3}
-      \begin{itemize}
-      \item Unit tangent vectors and arc length: 1-8
-      \item Arc length parameter: 11-14
-      \end{itemize}
+      \item Arc Length along a Space Curve
+        \begin{itemize}
+          \item Approximation 
+            \[L \approx \sum_{i=0}^n |\vec{r}(t_i+\Delta{t})-\vec{r}(t_i)|=\sum_{i=1}^n \left|\frac{\vec{r}(t_i+\Delta{t})-\vec{r}(t_i)}{\Delta{t}}\right|\Delta{t}\]
+          \item Definition 
+            \[L = \int_a^b \left|\lim_{\Delta{t}\to0}\frac{\vec{r}(t+\Delta{t})-\vec{r}(t)}{\Delta{t}}\right| \dvar{t} = \int_a^b |\vec{v}(t)| \dvar{t}\]
+          \item Arclength Parameter 
+            \[s(t) = \int_0^t |\vec{v}(\tau)|d\tau\]
+            \[\frac{ds}{dt} = |\vec{v}(t)| = \text{speed}\]
+        \end{itemize}
+
+      \item Unit Tangent Vector
+        \[\vec{T} = \frac{d\vec{r}}{ds} = \frac{\vec{v}}{|\vec{v}|}\]
+
+      \item \textbf{Suggested Exercises for 11.3}
+        \begin{itemize}
+        \item Unit tangent vectors and arc length: 1-8
+        \item Arc length parameter: 11-14
+        \end{itemize}
     \end{itemize}
   
   \newpage
   
   \centerline{\bf 11.4 Curvature of a Curve}
   
-  We wish to be able to find a quantity to describe how much a curve bends or turns.
-  
-  \begin{itemize}
-  \item Curvature (pg. 683-4)
     \begin{itemize}
-    \item We want curvature to represent how the curve is turning. This can be thought of as the rate of change of the unit tangent vector $\vec{T}$ with respect to arclength $s$.
-    \item Thus, the \textbf{curvature} $\kappa$ (``kappa'') of a smooth curve is given by \[\kappa = \left|\frac{d\vec{T}}{ds}\right| \]
-    \item Larger values of $\kappa$ correspond to sharper turns, while small values (close to $0$) of $\kappa$ designate a more straight path.
-    \item It follows that \[\kappa = \frac{1}{|\vec{v}|}\left|\frac{d\vec{T}}{dt}\right|\]
+      \item Curvature
+        \[\kappa = \left|\frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|}\left|\frac{d\vec{T}}{dt}\right| = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|^3}\]
+      
+      \item Curvature of a Circle
+      
+        \begin{itemize}
+        \item The curvature of a circle with radius $a$ is constantly \[\kappa = \frac{1}{a}\]
+        \end{itemize}
+      
+      \item Principal Unit Normal Vector
+        \[\vec{N} = \frac{d\vec{T}/ds}{|d\vec{T}/ds|} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|} = \frac{1}{\kappa} \frac{d\vec{T}}{ds}\]
+      
+      \item Circles of Curvature
+      
+        \begin{itemize}
+        \item The circle which:
+          \begin{enumerate}
+          \item is tangent to a curve at a point
+          \item has the same curvature as the curve at that point
+          \item lies on the concave side of the curve, in the direction of $\vec{N}$
+          \end{enumerate}
+        \item Radius: $a = \displaystyle\frac{1}{\kappa}$.
+        \item Center: $\<x_0,y_0\> = \vec{r}(t_0)+a\vec{N}$.
+        \item Equations: 
+          \[(x-x_0)^2+(y-y_0)^2=a^2\]
+          \[\vec{c}(t) = \<a\sin t+x_0,a\cos t+y_0\>, 0\leq t\leq 2\pi\]
+        \end{itemize}
+        
+      \item \textbf{ Suggested Exercises for 11.4:}
+      
+        \begin{itemize}
+        \item Find $\vec{T},\vec{N},\kappa$: 1-4, 9-16
+        \item Circles of Curvature: 21-22
+        \end{itemize}
+      
     \end{itemize}
-    
-  \item Computational Formula (Section 11.5 pg. 692)
-  
-    \begin{itemize}
-    \item In addition to the formulas for curvature $\kappa = \left|\frac{d\vec{T}}{ds}\right| = \frac{1}{|\vec{v}|}\left|\frac{d\vec{T}}{dt}\right|$, we may also  use $\vec{v}=\frac{ds}{dt}\vec{T}$ to prove that \[\kappa = \frac{|\vec{v} \times \vec{a}|}{|\vec{v}|^3}\]
-    \end{itemize}
-  
-  \item Curvature of a Circle (pg. 684)
-  
-    \begin{itemize}
-    \item The curvature of a circle with radius $a$, which may be parametrized \[\vec{r}(t)=\<a\cos t,a\sin t\>\] has curvature \[\kappa = \frac{1}{a}\] at every value of $t$.
-    \end{itemize}
-    
-    \newpage
-  
-  \item Principal Unit Normal Vector (pg. 684-5)
-    \begin{itemize}
-    \item The \textbf{principal unit normal vector} $\vec{N}$ for a smooth curve in space is \[\vec{N} = \frac{d\vec{T}/ds}{|d\vec{T}/ds|}= \frac{1}{\kappa} \frac{d\vec{T}}{ds}\]
-    \item This vector points in the direction of the turn of the curve.
-    \item It is easily proven that \[\vec{N} = \frac{d\vec{T}/dt}{|d\vec{T}/dt|}\]
-    \end{itemize}
-  
-  \item Circles of Curvature (pg. 685-6)
-  
-    \begin{itemize}
-    \item The \textbf{circle of curvature} (sometimes called the \textbf{osculating circle}) of a plane curve given by a vector function $\vec{r}(t)$ at $t=t_0$ where $\kappa\not=0$ is the circle such that
-      \begin{enumerate}
-      \item The circle is tangent to the curve when $t=t_0$. (That is, they share the same tangent line at the point given by $t=t_0$.)
-      \item The circle has the same curvature as the curve when $t=t_0$. (Thus, the circle's radius is the reciprocal of the curvature of the curve at $t=t_0$.)
-      \item The circle lies on the concave (``inner'') side of the curve. (That is, the vector $\vec{N}$ given by $\vec{r}(t)$ at $t=t_0$ points toward the center of the circle.)
-      \end{enumerate}
-    \item Its radius $a$ is given by $\displaystyle\frac{1}{\kappa}$.
-    \item Its center has the position vector $\vec{r}(t_0)+a\vec{N}$.
-    \item Thus, if its center is written as $(x_0,y_0)$, it has the formula \[(x-x_0)^2+(y-y_0)^2=a^2\] and vector equation \[\vec{c}(t) = \<a\sin t+x_0,a\cos t+y_0\>\] for $0\leq t\leq 2\pi$.
-    \end{itemize}
-    
-  \item \textbf{ Suggested Exercises for 11.4:}
-  
-    \begin{itemize}
-    \item Find $\vec{T},\vec{N},\kappa$: 1-4, 9-16
-    \item Circles of Curvature: 21-22
-    \end{itemize}
-    
-  \end{itemize}
   
   \newpage
   
   \centerline{\bf 11.5 Tangental and Normal Components of Acceleration}
   
-  \begin{itemize}
-  
-  \item The Binormal Vector (pg. 689)
-  
     \begin{itemize}
-    \item The \textbf{binormal vector} $\vec{B}$ to a curve in space is a unit vector perpendicular to the tangent and normal vectors.
-    \item It is defined to be \[\vec{B} = \vec{T} \times \vec{N}\]
-    \item The triple $\vec{T},\vec{N},\vec{B}$ provide a useful right-handed vector frame for calculating the paths of particles moving through space.
-      \begin{itemize}
-      \item $\vec{T}$ points forward
-      \item $\vec{N}$ points left in the direction of the turn
-      \item $\vec{B}$ points up
-      \end{itemize}
-    \end{itemize}
     
-  \item Tangental and Normal Components of Acceleration (pg. 689-90)
-  
-    \begin{itemize}
-    \item In section 11.3 we learned that \[\vec{v} = \left(\frac{ds}{dt}\right)\vec{T}\]
-    \item By differentiating this equation with respect to $t$, we find \[\vec{a} = \left(\frac{d^2s}{dt^2}\right)\vec{T} + \kappa\left(\frac{ds}{dt}\right)^2\vec{N}+0\vec{B}\]
-    \item Thus we may always express acceleration as a linear combination of the tangent and normal vectors to the curve. 
-    
-    Put another way, the acceleration vector lays in the plane determined by the vectors $\vec{T},\vec{N}$.
-    \item If the acceleration vector is written as
-    \[\vec{a} = a_T\vec{T}+a_N\vec{N}\]
-    then its \textbf{tangential component} is
-    \[a_T = \frac{d^2s}{dt^2} = \frac{d}{dt}|\vec{v}| \]
-    and its \textbf{normal component} is
-    \[a_N = \kappa\left(\frac{ds}{dt}\right)^2 = \kappa|\vec{v}|^2\]
-    \item By using the Pythagorean Theorem, we find another formula for computing $a_N$ which doesn't require finding the curvature $\kappa$:
-    \[a_N = \sqrt{|\vec{a}|^2 - a_T^2}\]
-    \end{itemize}
-  
-  \item Torsion (pg. 691-2)
-  
-    \begin{itemize}
-    \item We would like to define torsion so that it describes how much a curve is ``twisting''. That is, we should define it so that it describes the rate of change of the binormal vector $\vec{B}$ with respect to arclength $s$.
-    \item The absolute value of torsion $|\tau|$ may be defined by \[|\tau| = \left|\frac{d\vec{B}}{ds}\right|\] However, we want to further define torsion to be positive for a twist to the right (away from $\vec{N}$), and negative otherwise. 
-    \item By differentiation, we may find that \[\frac{d\vec{B}}{ds} = \vec{T} \times \frac{d\vec{N}}{ds}\]
-    \item As $\frac{d\vec{B}}{ds}$ is orthogonal to $\vec{B}$ and $\vec{T}$, it must lie parallel to $\vec{N}$.  Therefore, we may write \[\frac{d\vec{B}}{ds} = \left(\pm\left|\frac{d\vec{B}}{ds}\right|\right)\vec{N}=(\pm|\tau|)\vec{N}\]
-    \item Since we said we wanted a turn away from $\vec{N}$ to be positive, we use $-\tau$, giving the definition of \textbf{torsion} $\tau$ (``tau''): \[\frac{d\vec{B}}{ds} = (-\tau)\vec{N}\]
-    \item Solving for $\tau$ yields \[\tau = -\frac{d\vec{B}}{ds}\cdot \vec{N}\]
-    \item Replacing $ds$ with $\frac{ds}{dt}dt$ we find the formula \[\tau = -\frac{1}{|\vec{v}|}\left(\frac{d\vec{B}}{dt}\cdot\vec{N}\right)\]
-    \end{itemize}
-    \newpage
-  \item Computational Formula (pg. 692)
+      \item Binormal Unit Vector
+        \[\vec{B} = \vec{T} \times \vec{N}\]
 
-    \begin{itemize}
-    \item In advanced calculus, it is proved that torsion may also be computed by the formula
-  \[
-  \tau
-  =
-  \frac{
-  \begin{array}{|ccc|}
-  \dot{x} & \dot{y} & \dot{z} \\
-  \ddot{x} & \ddot{y} & \ddot{z} \\
-  \dddot{x} & \dddot{y} & \dddot{z}
-  \end{array}
-  }{
-  |\vec{v}\times\vec{a}|^2
-  }
-  \]
-  where $\dot{x}=\frac{dx}{dt}$.
-    \end{itemize}
+      \item Right-handed vector frames
+        \begin{itemize}
+          \item $\veci,\vecj,\veck$
+          \item $\vec{T},\vec{N},\vec{B}$
+        \end{itemize}
+        
+      \item Tangental and Normal Components of Acceleration
+        \[\vec{a} = \left(\frac{d^2s}{dt^2}\right)\vec{T} + \kappa\left(\frac{ds}{dt}\right)^2\vec{N}+0\vec{B}\]
+        \begin{itemize}
+          \item Tangental component
+            \[a_T = \frac{d^2s}{dt^2} = \frac{d}{dt}|\vec{v}| \]
+          \item Normal component
+            \[a_N = \kappa\left(\frac{ds}{dt}\right)^2 = \kappa|\vec{v}|^2 = \sqrt{|\vec{a}|^2 - a_T^2}\]
+        \end{itemize}
+      
+      \item Torsion
+        \begin{itemize}
+          \item Magnitude of torsion
+            \[|\tau| = \left|\frac{d\vec{B}}{ds}\right|\]
+          \item Signed torsion
+            \[\frac{d\vec{B}}{ds} = (-\tau)\vec{N}\]
+            \[\tau = -\frac{d\vec{B}}{ds}\cdot \vec{N} = -\frac{1}{|\vec{v}|}\left(\frac{d\vec{B}}{dt}\cdot\vec{N}\right)\]
+            \[
+              \tau
+              =
+              \frac{
+              \begin{array}{|ccc|}
+              \dot{x} & \dot{y} & \dot{z} \\
+              \ddot{x} & \ddot{y} & \ddot{z} \\
+              \dddot{x} & \dddot{y} & \dddot{z}
+              \end{array}
+              }{
+              |\vec{v}\times\vec{a}|^2
+              }
+            \]
+        \end{itemize}
+        
+      \item \textbf{ Suggested Exercises for 11.5:}
+      
+        \begin{itemize}
+        \item Finding tangental and normal components of acceleration: 1-6
+        \item Finding $\vec{B}$ and $\tau$: 9-16
+        \end{itemize}
     
-  \item \textbf{ Suggested Exercises for 11.5:}
-  
-    \begin{itemize}
-    \item Finding tangental and normal components of acceleration: 1-6
-    \item Finding $\vec{B}$ and $\tau$: 9-16
     \end{itemize}
-  
-  \end{itemize}
   
   \newpage
   
   \centerline{\bf 11.6 Velocity and Acceleration in Polar Coordinates}
   
-  When describing (for instance) the motion of planets or other rotating objects, polar coordinates are often useful for modeling motion.
-  
-  Cylindrical coordinates extend the polar coordinate system into a 3D system.
-  
-  \begin{itemize}
-  
-  \item Polar Coordinates
-  
     \begin{itemize}
-    \item Recall that points in two dimensional space may be represented by the polar coordinate $(r,\theta)$, where $\theta$ represents the counter-clockwise angle from the $x$-axis and $r$ represents the directed distance from the origin.
-    \item Unlike Cartesian space, polar coordinates are not unique. For instance, $(2,\frac{\pi}{4})$, $(-2,\frac{5\pi}{4})$, and $(2,\frac{9\pi}{4})$ all correspond to the same point.
-    \end{itemize}
     
-  \item Cylindrical Coordinates
-  
-    \begin{itemize}
-    \item By adding a third parameter $z$, we get the cylindrical coordinate $(r,\theta,z)$.
-    \item $r$ and $\theta$ correspond to the same position in the $xy$ plane as they do in polar coordinates, and $z$ corresponds to the distance from the $xy$ plane (as it does in 3D Cartesian coordinates).
-    \end{itemize}
-    
-  \item Parametrization of a Polar/Cylindrical Curve
-  
-    \begin{itemize}
-    \item Just as curves described with Cartesian coordinates may be parametrized, curves described with polar coordinates may also be parametrized.
-    \item Motion on a 2D curve using polar coordinates may then be described using the functions $r(t),\theta(t)$.
-    \item Motion on a 3D curve using cylindrical coordinates may then be described using the functions $r(t),\theta(t),z(t)$.
-    \end{itemize}
-    
-  \item Motion in Polar and Cylindrical Coordinates (pg. 694)
-  
-    \begin{itemize}
-    \item When a particle is positioned at the polar coordinate $(r,\theta)$ we may express its position, velocity, and acceleration by the unit vectors \[\vec{u}_r = \<\cos\theta,\sin\theta\> \text{ and } \vec{u}_\theta = \<-\sin\theta,\cos\theta\>\]
-    \item If the particle's position is given by the vector $\vec{r}$, then it follows that \[\vec{r} = r\vec{u}_r\]
-    \item By differentiating with respect to $\theta$, we find that \[\frac{d\vec{u}_r}{d\theta} = \<-\sin\theta,\cos\theta\> = \vec{u}_\theta \text{ and } \frac{d\vec{u}_\theta}{d\theta} = \<-\cos\theta,-\sin\theta\> = -\vec{u}_r\]
-    \item If we differentiate with respect to $t$ to see how $\vec{u}_r$ and $\vec{u}_\theta$ change with respect to time, we get by the Chain Rule that \[\dot{\vec{u}}_r = \dot{\theta}\vec{u}_\theta \text{ and } \dot{\vec{u}}_\theta = -\dot\theta\vec{u}_r\] where $\dot x$ denotes $\frac{dx}{dt}$.
-    \item This results in a formula for expressing $\vec{v}$ in terms of $\vec{u}_r,\vec{u}_\theta$: \[\vec{v} = \dot{r}\vec{u}_r + r\dot\theta\vec{u}_\theta\]
-    \item Similarly, we may find \[\vec{a} = (\ddot{r} - r\dot\theta^2)\vec{u}_r + (r\ddot\theta + 2\dot{r}\dot\theta)\vec{u}_\theta\]
-    \item For cylindrical coordinates, we note that \[\vec{r} = r\vec{u}_r + z\veck\] and thus \[\vec{v} = \dot{r}\vec{u}_r + r\dot\theta\vec{u}_\theta + \dot{z}\veck\] and \[\vec{a} = (\ddot{r} - r\dot\theta^2)\vec{u}_r + (r\ddot\theta + 2\dot{r}\dot\theta)\vec{u}_\theta+\ddot{z}\veck\]
-    \item Like $\veci,\vecj,\veck$, the cylindrical unit vectors $\vec{u}_r,\vec{u}_\theta,\veck$ form a right hand frame such that
-      \begin{itemize}
-      \item $\vec{u}_r \times \vec{u}_\theta = \veck$
-      \item $\vec{u}_\theta \times \veck = \vec{u}_r$
-      \item $\veck \times \vec{u}_r = \vec{u}_\theta$
-      \end{itemize}
+      \item Polar Coordinates $(r,\theta)$
+        \begin{itemize}
+          \item Cartesian to Polar
+            \[r = x^2+y^2, \theta = \Arctan\left(\frac{y}{x}\right)\]
+          \item Polar to Cartesian
+            \[x = r\cos\theta, y=r\sin\theta\]
+        \end{itemize}
+        
+      \item Cylindrical Coordinates $(r,\theta,z)$
+        \begin{itemize}
+          \item Cartesian to Cylindrical
+            \[r = x^2+y^2, \theta = \Arctan\left(\frac{y}{x}\right), z=z\]
+          \item Cylindrical to Cartesian
+            \[x = r\cos\theta, y=r\sin\theta, z=z\]
+        \end{itemize}
+        
+      \item Polar/Cylindrical Unit Vectors
+        \[\vec{u}_r = \<\cos\theta,\sin\theta\>, \vec{u}_\theta = \<-\sin\theta,\cos\theta\>\]
+        \begin{itemize}
+          \item Cylindrical Right-handed frame
+            \[\vec{u}_r,\vec{u}_\theta,\veck\]
+          \item Derivatives
+            \[\frac{d}{dt}\left[\vec{u}_r\right] = \dot{\vec{u}_r} = \dot{\theta}\vec{u}_\theta \]
+            \[\frac{d}{dt}\left[\vec{u}_\theta\right] = \dot{\vec{u}_\theta} = -\dot{\theta}\vec{u}_r \]
+          \item Polar Position/Velocity/Acceleration
+            \[\vec{r} = r\vec{u}_r\]
+            \[\vec{v} = \dot{r}\vec{u}_r + r\dot\theta\vec{u}_\theta\]
+            \[\vec{a} = (\ddot{r} - r\dot\theta^2)\vec{u}_r + (r\ddot\theta + 2\dot{r}\dot\theta)\vec{u}_\theta\]
+          \item Cylindrical Position/Velocity/Acceleration
+            \[\vec{r} = r\vec{u}_r + z\veck\]
+            \[\vec{v} = \dot{r}\vec{u}_r + r\dot\theta\vec{u}_\theta + \dot{z}\veck\]
+            \[\vec{a} = (\ddot{r} - r\dot\theta^2)\vec{u}_r + (r\ddot\theta + 2\dot{r}\dot\theta)\vec{u}_\theta+\ddot{z}\veck\]
+        \end{itemize}
+      
+      \item \textbf{ Suggested Exercises for 11.6:}
+        \begin{itemize}
+        \item Expressing $\vec{v}$ and $\vec{a}$ in terms of $\vec{u}_r$ and $\vec{u}_\theta$: 1-5
+        \end{itemize}
     \end{itemize}
   
-  \item \textbf{ Suggested Exercises for 11.6:}
-  
-    \begin{itemize}
-    \item Expressing $\vec{v}$ and $\vec{a}$ in terms of $\vec{u}_r$ and $\vec{u}_\theta$: 1-5
-    \end{itemize}
-  \end{itemize}
-  
-  \newpage
-  
-  \centerline{\bf 11.6 Optional Material on Planetary Motion}
-  
-  \begin{itemize}
-  \item Motion of Planets in Space (pg. 695-6)
-  
-    \begin{itemize}
-    \item Newton's law of gravitation states that for two bodies, one of which is positioned at the origin and has mass $M$ (perhaps a sun), and another which is positioned at $\vec{r}$ and has mass $m$ (perhaps a planet), then the force $\vec{F}$ of gravitation between the two bodies is given by the equation \[\vec{F} = -\frac{GmM}{|\vec{r}|^2}\frac{\vec{r}}{|\vec{r}|}\] where $G$ is the universal gravitational constant $\approx 6.6726 \times 10^{-11}$ Nm$^2$kg$^{-2}$.
-    
-    \item Recalling Newton's second law ($\vec{F} = m\vec{a}$), we may then find \[\ddot{\vec{r}} = -\frac{GM}{|\vec{r}|^2}\frac{\vec{r}}{|\vec{r}|}\]
-    
-    \item Since $\ddot{\vec{r}}$ is a scalar multiple of $\vec{r}$, we have \[\vec{r} \times \ddot{\vec{r}} = \vec{0}\]
-    
-    \item And by the product rule, we find \[\frac{d}{dt}\left[\vec{r}\times\dot{\vec{r}}\right] = \vec{0}\] and thus \[\vec{r}\times\dot{\vec{r}} = \vec{C}\] for some constant vector $\vec{C}$.
-    
-    \item Since $\vec{r}$,$\dot{\vec{r}}$ lie in a plane perpendicular to $\vec{C}$, the planet must always move in a fixed plane including the center of its sun.
-    \end{itemize}
-  
-  \item Kepler's First Law (pg. 696)
-  
-    \begin{itemize}
-    \item Kepler's First Law states that the path of a revolving planet is an ellipse with the sun at one focus.
-    \item The eccentricity of the ellipse is \[e = \frac{r_0v_0^2}{GM} - 1\] where $r_0$ is the minimum distance of the planet from the sun and $v_0$ is its linear speed at that moment.
-    \item The polar equation of the ellipse is \[r = \frac{(1+e)r_0}{1+e\cos\theta}\]
-    \end{itemize}
-    
-  \item Kepler's Second Law (pg. 696-7)
-  
-    \begin{itemize}
-    \item Kepler's Second Law, known as the Equal Area Law, states that the planet always sweeps out a constant area inside the ellipse for equal amounts of time, regardless of position.
-    \item This can be seen by observing that \[\frac{dA}{dt} = \frac{1}{2}r^2\dot\theta\] and \[r^2\dot\theta = r_0v_0\]
-    \item As $\frac{dA}{dt}$ is constant with respect to time, the result follows.
-    \end{itemize}
-    
-  \item Kepler's Third Law (pg. 697)
-  
-    \begin{itemize}
-    \item Let $T$ represent the time it takes for a planet to orbit its sun and $a$ be the semimajor axis of its elliptical path. It then follows that \[\frac{T^2}{a^3}=\frac{4\pi^2}{GM}\]
-    \end{itemize}
-    
-  \end{itemize}
-  
-  \newpage
+ % \newpage
   
 %   \centerline{\bf Sets}
   
