@@ -808,6 +808,8 @@ v_1 & v_2 \\
         \end{itemize}
     \end{itemize}
   
+
+% Gonna opt out on a sets section, since not in book.
  % \newpage
   
 %   \centerline{\bf Sets}
@@ -880,95 +882,62 @@ v_1 & v_2 \\
 %     \end{itemize}
   
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 12.1 Functions of Several Variables}
+  \centerline{\bf 12.1 Functions of Several Variables}
   
-%   So far, we've dealt with functions with a single input ($x$ or $t$, typically). We now generalize our concepts of limits, derivatives, and so on to functions which allow multiple inputs.
+  \begin{itemize}
   
-%   \begin{itemize}
+    \item Real-Valued Functions
   
-%   \item Real-Valued Functions (pg. 702-3)
-  
-%     \begin{itemize}
-%     \item Let $D\subseteq \mathbb{R}^n$ be any set of $n$-tuples. A \textbf{real-valued function} $f$ on with \textbf{domain} $D$ is a rule that assigns a real number \[w = f(x_1,x_2,\dots,x_n) \in \mathbb{R}\] to each $(x_1,x_2,\dots,x_n) \in D$.
-%     \item The set \[R = \{f(x_1,x_2,\dots,x_n) : (x_1,x_2,\dots,x_n) \in D\}\] is the \textbf{range} of the function. Note that this is the collection of every possible value given by $f$ for every value inside $D$.
-%     \item If our function accepts three or less inputs, we usually use the letters $x,y,z$ for $x_1,x_2,x_3$.
-%     \end{itemize}
+      \begin{itemize}
+        \item A \textbf{real-valued function} $f$ on with \textbf{domain} $D \subset \mathbb{R}^n$ is a rule that assigns a real number \[f(x_1,x_2,\dots,x_n) \in \mathbb{R}\] to each $(x_1,x_2,\dots,x_n) \in D$.
+        \item The domain of a function is assumed to be all of $\mathbb{R}^n$ except where the function is not well-defined.
+        \item The \textbf{range} of the function is \[R = \{f(x_1,x_2,\dots,x_n) : (x_1,x_2,\dots,x_n) \in D\}\]
+      \end{itemize}
     
-%   \item Domains and Ranges (pg. 703)
-  
-%     \begin{itemize}
-%     \item The domain of a function is initially assumed to be some $\mathbb{R}^n$.
-%       \begin{itemize}
-%       \item $f(x,y) = x^2+y^3+4$ has domain $\mathbb{R}^2$.
-%       \item $f(x,y,z) = y^z + \cos(x)$ has domain $\mathbb{R}^3$.
-%       \end{itemize}
-%     \item If certain values of $\mathbb{R}^n$ result in division by zero, or a complex number, or otherwise don't make ``sense'', we assume the domain is restricted appropriately.
-%       \begin{itemize}
-%       \item $f(x,y) = \sqrt{x^2-y}$ has domain $\mathbb{R}^2$ except for when $x^2-y=0$. Thus, its domain is the set $\{(x,y):x^2-y\not=0\}$.
-%       \item $f(x,y,z) = \ln(x+y+z)$ has domain $\{(x,y,z) : x+y+z>0\}$.
-%       \end{itemize}
-%     \item The range of a function is given by all possible values that could be ``spit out'' by the function.
-%       \begin{itemize}
-%       \item $f(x,y) = \sqrt{x^2-y}$ has range $[0,\infty)=\{w: w\geq 0\}$.
-%       \item $f(x,y,z) = \ln(x+y+z)$ has range $\mathbb{R}$.
-%       \end{itemize}
-%     \end{itemize}
+    \item Regions
     
-%   \newpage
+      \begin{itemize}
+        \item A subset of the $xy$-plane ($\mathbb{R}^2$) or $xyz$-space ($\mathbb{R}^3$) is known as a \textbf{region}.
+        \item The \textbf{ball} $B(p,\epsilon)$ is the set of points \[B(p,\epsilon) = \{q \in \mathbb{R}^2 : \text{the distance between }p\text{ and }q\text{ is less than }\epsilon\}\] Its \textbf{center} is the point $p$ and its \textbf{radius} is $\epsilon$.
+        \item A point $p\in\mathbb{R}^2$ is known as an \textbf{interior point} of a region $R$ if \textit{there exists some ball} containing $p$ that lies inside $R$.
+        \item A point $p\in\mathbb{R}^2$ is known as a \textbf{boundary point} of a region $R$ if \textit{every ball} containing $p$ contains some points in $R$ and some points not in $R$.
+        \item A point $p\in\mathbb{R}^2$ is known as an \textbf{exterior point} of a region $R$ if \textit{there exists some ball} containing $p$ that lies outside $R$.
+        \item The \textbf{interior} of $R$ is the set \[\textrm{int}(R)=\{p : p \text{ is an interior point of } R\}\]
+        \item The \textbf{boundary} of $R$ is the set \[\textrm{bd}(R)=\{p : p \text{ is a boundary point of } R\}\]
+        \item The \textbf{exterior} of $R$ is the set \[\textrm{ext}(R)=\{p : p \text{ is an exterior point of } R\}\]
+        \item A region $R$ is \textbf{open} if it doesn't contain any of its boundary.
+        \item A region $R$ is \textbf{closed} if it contains all of its boundary.
+        \item A region $R$ is \textbf{bounded} if it can be contained within a ball.
+        \item A region $R$ is \textbf{unbounded} if it cannot be contained within a ball.
+      \end{itemize}
+
+    \item Sketching Functions
+  
+      \begin{itemize}
+        \item Level curve
+          \[\{(x,y):f(x,y)=c\}\]
+        \item Surface $z=f(x,y)$
+          \[\{(x,y,f(x,y)): (x,y)\in \textrm{Dom}(f)\}\]
+        \item Contour curve 
+          \[\{(x,y,c): f(x,y)=c\}\]
+        \item Level surface
+          \[\{(x,y,z):f(x,y,z)=c\}\]
+      \end{itemize}
+  
+  \item \textbf{ Suggested Exercises for 12.1:}
+  
+    \begin{itemize}
+    \item Identifying and describing domains, ranges, level curves, boundaries: 1-12
+    \item Relating level curves to graphs: 13-18
+    \item Sketching surfaces and level curves: 19-28
+    \item Finding level curves through a point: 29-32
+    \item Sketching level surfaces: 33-40
+    \item Finding level surfaces through a point: 41-44
+    \end{itemize}
     
-%   \item Regions (pg. 703-4 and 707)
-  
-%     \begin{itemize}
-%     \item A subset of the $xy$-plane ($\mathbb{R}^2$) is known as a \textbf{region}.
-%     \item Let $p\in\mathbb{R}^2$ and $\epsilon \in (0,\infty)$. A \textbf{ball} $B(p,\epsilon) \subseteq \mathbb{R}^2$ is the set of points \[B(p,\epsilon) = \{q \in \mathbb{R}^2 : \text{the distance between }p\text{ and }q\text{ is less than }\epsilon\}\] Its \textbf{center} is the point $p$ and its \textbf{radius} is $\epsilon$.
-%     \item A point $p\in\mathbb{R}^2$ is known as an \textbf{interior point} of a region $R$ if \textit{there exists some ball} containing $p$ that lies inside $R$.
-%     \item A point $p\in\mathbb{R}^2$ is known as a \textbf{boundary point} of a region $R$ if \textit{every ball} containing $p$ contains some points in $R$ and some points not in $R$.
-%     \item A point $p\in\mathbb{R}^2$ is known as an \textbf{exterior point} of a region $R$ if \textit{there exists some ball} containing $p$ that lies outside $R$.
-%       \begin{itemize}
-%       \item For every region $R$, every point is either an interior point, a boundary point, or an exterior point.
-%       \end{itemize}
-%     \item The \textbf{interior} of $R$ is the set \[\textrm{int}(R)=\{p : p \text{ is an interior point of } R\}\]
-%     \item The \textbf{boundary} of $R$ is the set \[\textrm{bd}(R)=\{p : p \text{ is a boundary point of } R\}\]
-%     \item The \textbf{exterior} of $R$ is the set \[\textrm{ext}(R)=\{p : p \text{ is an exterior point of } R\}\]
-%     \item A region $R$ is \textbf{open} if every point in $R$ is an interior point. Equivalently, $R$ is open if $\textrm{int}(R) = R$.
-%     \item A region $R$ is \textbf{closed} if every boundary point of $R$ is in $R$. Equivalently, $R$ is closed if $\textrm{bd}(R) \subseteq R$.
-%     \item A region $R$ is \textbf{bounded} if there exists some radius $\epsilon$ such that $R \subseteq B(O,\epsilon)$ where $O$ is the origin.
-%     \item A region $R$ is \textbf{unbounded} if it is not bounded.
-%     \item \textit{All of these concepts are also defined for $\mathbb{R}^3$.}
-%     \end{itemize}
-%   \newpage
-%   \item Level Curves, Graphs, and Contour Curves (pg. 705)
-  
-%     \begin{itemize}
-%     \item Let $f(x,y)$ be a function.
-%       \begin{itemize}
-%       \item The set of points $\{(x,y):f(x,y)=c\}$ is called the \textbf{level $c$ curve} of $f$.
-%       \item The set of points $\{(x,y,f(x,y)): (x,y)\in \textrm{Dom}(f)\}$ is called the \textbf{graph} of $f$. It is also known as the \textbf{surface} $z=f(x,y)$.
-%       \item The set of points $\{(x,y,c): f(x,y)=c\}$ is the \textbf{contour $c$ curve} of $f$.
-%       \end{itemize}
-%     \item Note that a contour curve lays on the graph of $f$, and the corresponding level curve is its ``shadow'' on the $xy$-plane.
-%     \end{itemize}
-  
-%   \item Level Surfaces (pg. 705-6)
-  
-%     \begin{itemize}
-%     \item Let $f(x,y,z)$ be a function. The set of points $\{(x,y,z):f(x,y,z)=c\}$ is called the \textbf{level $c$ surface} of $f$.
-%     \end{itemize}
-  
-%   \item \textbf{ Suggested Exercises for 12.1:}
-  
-%     \begin{itemize}
-%     \item Identifying and describing domains, ranges, level curves, boundaries: 1-12
-%     \item Relating level curves to graphs: 13-18
-%     \item Sketching surfaces and level curves: 19-28
-%     \item Finding level curves through a point: 29-32
-%     \item Sketching level surfaces: 33-40
-%     \item Finding level surfaces through a point: 41-44
-%     \end{itemize}
-    
-%   \end{itemize}
+  \end{itemize}
   
 %   \newpage
   
