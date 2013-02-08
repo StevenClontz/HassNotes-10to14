@@ -1001,109 +1001,79 @@ v_1 & v_2 \\
   
   \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 12.3 Partial Derivatives}
+  \centerline{\bf 12.3 Partial Derivatives}
   
-%   For one-dimensional functions, the derivative was considered the rate of change at a point. However, for multi-dimensional functions, the rate of change depends on the path of approach. In this section, we consider the rate of change as we only vary a single variable.
+  \begin{itemize}
   
-%   \begin{itemize}
-  
-%   \item Partial Derivatives (pg. 719-21)
-  
-%     \begin{itemize}
-%     \item Let $f(x_1,\dots,x_n)$ be a real-valued function.  The \textbf{partial derivative of $f$ with respect to $x_i$} is the limit \[\frac{\partial f}{\partial x_i}=f_{x_i}=\lim_{h\to 0}\frac{f(x_1,\dots,x_i+h,\dots,x_n)-f(x_1,\dots,x_i,\dots,x_n)}{h}\] provided the limit exists.
-%     \item For example, the partial derivative of $f(x,y,z)$ with respect to $y$ is the limit \[\frac{\partial f}{\partial y} = f_y = \lim_{h\to 0}\frac{f(x,y+h,z)-f(x,y,z)}{h}\]
-%     \item Suppose we hold $x,z$ constant in $f(x,y,z)$. Then $f(x,y,z)=F(y)$ and \[f_y = \lim_{h\to 0}\frac{f(x,y+h,z)-f(x,y,z)}{h}=\lim_{h\to 0}\frac{F(y+h)-F(y)}{h}=F'(y)\]
-%     \item So, \textbf{to compute partial derivatives with respect to a variable, treat all other variables as constants and differentiate as normal}.
-%     \item To find the rate of change of $f(x,y,z)$ at the point $(x_0,y_0,z_0)$ as we vary only $y$, we may compute \[\left.\frac{\partial f}{\partial y} \right|_{(x_0,y_0,z_0)}=f_y(x_0,y_0,z_0)=\lim_{h\to 0}\frac{f(x_0,y_0+h,z_0)-f(x_0,y_0,z_0)}{h}\]
-%     \end{itemize}
+    \item Partial Derivatives 
     
-%   \item Higher Order Partial Derivatives (pg. 725-7)
-  
-%     \begin{itemize}
-%     \item A partial derivative is a new function which we may wish to differentiate partially again to see how it changes as we vary a variable.
-%     \item The resulting notation is \[\frac{\partial^2 f}{\partial x\partial y} = \frac{\partial}{\partial x}\left[ \frac{\partial f}{\partial y} \right] = (f_y)_x = f_{yx}\] \[\frac{\partial^2 g}{\partial z\partial z}= \frac{\partial^2 g}{\partial z^2}= g_{zz}\]
-%     \item The \textbf{Mixed Derivative Theorem} says that if $f,f_x,f_y,f_{xy},f_{yx}$ are all defined and continuous for every point in an open region containing the point $(a,b)$, then \[f_{xy}(a,b)=f_{yx}(a,b)\]
-%     \item Thus, if $f,f_x,f_y,f_{xy},f_{yx}$ are defined and continuous on the domain of $f_{xy}$ and $f_{yx}$, then \[f_{xy}=f_{yx}\]
-%     \end{itemize}
+      \begin{itemize}
+        \item The \textbf{partial derivative of $f$ with respect to $x_i$} is the limit \[\frac{\partial f}{\partial x_i}=f_{x_i}=\lim_{h\to 0}\frac{f(x_1,\dots,x_i+h,\dots,x_n)-f(x_1,\dots,x_n)}{h}\]
+        \item By the definition, we can see that to compute partial derivatives with respect to a variable, we can treat all other variables as constants and differentiate as normal.
+      \end{itemize}
+      
+    \item Higher Order Partial Derivatives
+
+      \[
+        \frac{\partial^2 f}{\partial x\partial y} = \frac{\partial}{\partial x}\left[ \frac{\partial f}{\partial y} \right] = (f_y)_x = f_{yx}
+      \] 
+      \[
+        \frac{\partial^2 g}{\partial z\partial z}= \frac{\partial^2 g}{\partial z^2}= g_{zz}
+      \]
     
-%   \item Differentiability (pg. 757-8)
-  
-%     \begin{itemize}
-%     \item The function
-%   \[
-%   f(x,y) = \left\{
-%   \begin{array}{l@{\ :\ }l}
-%   1 & x=0 \text{ or } y=0 \\
-%   0 & x\not=0 \text{ and } y\not=0
-%   \end{array}
-%   \right.
-%   \]
-%     has well-defined partial derivatives $f_x,f_y$ at $(0,0)$, but is not itself continuous at $(0,0)$.
-%     \item We want differentiability to imply continuity as it does for one-dimensional functions. So, we need a stronger requirement for differentiability.
-%     \item We say $f$ is \textbf{strongly differentiable at a point $p$} if there is an open region containing $p$ such that $f_x,f_y$ are defined and continuous in that region.
-%     \item Then $f$ is \textbf{strongly differentiable} if it is strongly differentiable at every point in its domain.
-%     \item It follows from this definition that if $f$ is strongly differentiable at a point, then it is continuous there.
-%     \end{itemize}
-  
-%   \item \textbf{Suggested Exercises for 12.3:}
-  
-%     \begin{itemize}
-%     \item Finding first-order partial derivatives: 1-38
-%     \item Finding second-order partial derivatives: 41-50
-%     \item Finding partial derivatives from the limit definition: 53-56
-%     \end{itemize}
-  
-%   \end{itemize}
-  
-%   \newpage
-  
-%   \centerline{\bf 12.4 The Chain Rule}
-  
-%   For scalar functions, the chain rule \[\frac{df}{dx}=\frac{d}{dx}[f(u)]=f'(u)u'(x)=\frac{df}{du}\frac{du}{dx}\] describes how to differentiate a composition of functions.  We will now address the differentiation of composition of functions which may have multiple inputs.
-  
-%   \begin{itemize}
-  
-%   \item Gradient Vector Function (pg. 742 [Section 12.5])
-  
-%     \begin{itemize}
-%     \item The \textbf{gradient vector function} (or simply \textbf{gradient}) of a real-valued function $f(x_1,\dots,x_n)$ is the $n$-dimensional vector function \[\nabla f = \left\langle f_{x_1}, \dots, f_{x_n} \right\rangle\]
-%     \item For example, the gradient of $f(x,y,z)$ is \[\nabla f = \left\langle f_x,f_y,f_z \right\rangle = \left\langle \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z} \right\rangle\]
-%     \end{itemize}
-  
-%   \item Chain Rule
-  
-%     \begin{itemize}
-%     \item If $f$ is a function of one or more variables given by $\vec{r}=\<x_1,x_2,\dots\>$, each of which is a function of the single variable $t$, then \[\frac{df}{dt}=\nabla{f}\cdot\frac{d\vec{r}}{dt}=\frac{\partial f}{\partial x_1}\frac{dx_1}{dt}+\frac{\partial f}{\partial x_2}\frac{dx_2}{dt}+\dots\]
-%     \item If $f$ is a function of one or more variables given by $\vec{r}=\<x_1,x_2,\dots\>$, each of which is a function of the variables $t_1,t_2,\dots$, then \[\frac{\partial f}{\partial t_i}=\nabla{f}\cdot\frac{\partial\vec{r}}{\partial t_i}=\frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial t_i}+\frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial t_i}+\dots\]
-%     \end{itemize}
+      \begin{itemize}
+        \item Mixed Derivative Theorem:
+          \[f_{xy}=f_{yx}\]
+      \end{itemize}
     
-%   \item Differentiation by Substitution
-  
-%     \begin{itemize}
-%     \item The above Chain Rules are useful in some cases, but are not always necessary.
-%     \item For example, if $f(x,y,z) = x^2y+y\ln z$, $x(t) = t^3$, $y(t) = t^2$, and $z(t) = t+1$, you may find it easier to differentiate \[f(x(t),y(t),z(t)) = (t^3)^2(t^2)+(t^2)\ln(t+1) = t^8 + t^2\ln(t+1)\] with respect to $t$ rather than applying the chain rule.
-%     \end{itemize}
+    \item \textbf{Suggested Exercises for 12.3:}
     
-%   \newpage
+      \begin{itemize}
+        \item Finding first-order partial derivatives: 1-38
+        \item Finding second-order partial derivatives: 41-50
+        \item Finding partial derivatives from the limit definition: 53-56
+      \end{itemize}
+  
+  \end{itemize}
+  
+  \newpage
+  
+  \centerline{\bf 12.4 The Chain Rule}
+  
+  \begin{itemize}
+  
+    \item Gradient Vector Function
+      \[\nabla f = \< f_{x_1}, \dots, f_{x_n} \> = \<\frac{\partial f}{\partial x_1}, \dots, \frac{\partial f}{\partial x_n}\>\]
     
-%   \item Implicit Differentiation (pg. 735-6)
-  
-%     \begin{itemize}
-%     \item Suppose that $f(x,y)$ is differentiable and $f(x,y)=c$ defines $y$ as a function of $x$. It follows that \[\frac{\partial f}{\partial x}=f_x\frac{dx}{dx}+f_y\frac{dy}{dx} = 0\]
-%     \item Thus it follows that $\ds\frac{dy}{dx} = -\frac{f_x}{f_y}$.
-%     \end{itemize}
+    \item Chain Rule
+      \begin{itemize}
+        \item For single variable functions:
+          \[\frac{df}{dt}=\nabla{f}\cdot\frac{d\vec{r}}{dt}=\frac{\partial f}{\partial x_1}\frac{dx_1}{dt}+\frac{\partial f}{\partial x_2}\frac{dx_2}{dt}+\dots\]
+        \item For multi-variable functions:
+          \[\frac{\partial f}{\partial t_i}=\nabla{f}\cdot\frac{\partial\vec{r}}{\partial t_i}=\frac{\partial f}{\partial x_1}\frac{\partial x_1}{\partial t_i}+\frac{\partial f}{\partial x_2}\frac{\partial x_2}{\partial t_i}+\dots\]
+      \end{itemize}
+      
+    \item Differentiation by Substitution
     
-%   \item \textbf{Suggested Exercises for 12.4:}
+      \begin{itemize}
+      \item The Chain Rule can be avoided by ``plugging in'' functions and using single-variable calculus.
+      \end{itemize}
+      
+    \item Implicit Differentiation
+
+      \[\ds\frac{dy}{dx} = -\frac{f_x}{f_y}\]
+      
+    \item \textbf{Suggested Exercises for 12.4:}
+    
+      \begin{itemize}
+      \item Finding $\frac{dw}{dt}$ for $w=f(x(t),y(t),z(t))$: 1-6
+      \item Finding partial derivatives for compositions of multi-variable functions: 7-12, 33-38
+      \item Using partial derivatives for implicit differentiation: 25-28
+      \end{itemize}
   
-%     \begin{itemize}
-%     \item Finding $\frac{dw}{dt}$ for $w=f(x(t),y(t),z(t))$: 1-6
-%     \item Finding partial derivatives for compositions of multi-variable functions: 7-12, 33-38
-%     \item Using partial derivatives for implicit differentiation: 25-28
-%     \end{itemize}
-  
-%   \end{itemize}
+  \end{itemize}
   
 %   \newpage
   
