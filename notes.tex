@@ -1075,89 +1075,59 @@ v_1 & v_2 \\
   
   \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 12.5 Directional Derivatives and Gradient Vectors}
+  \centerline{\bf 12.5 Directional Derivatives and Gradient Vectors}
   
-%   Using a partial derivative such as $\frac{\partial f}{\partial y}$ we may describe the rate of change of the function $f$ as we vary that individual variable. We now wish to be able to describe the rate of change of a variable as we vary the input values along any curve in the domain.
+  \begin{itemize}
   
-%   \begin{itemize}
+  \item Directional Derivative
   
-%   \item Directional Derivative
-  
-%     \begin{itemize}
-%     \item We wish to define the directional derivative to be the rate of change of $f$ at a point as we move through a line passing through that point.
-%     \item Let $\vec{u}$ be a unit vector and $f$ be a function of several variables. Note that the line passing through a point $P_0$ in the direction of $\vec{u}$ has equation $\vec{r}(s)=\vec{P_0}+s\vec{u}$.
-%     \item Thus the rate of change of $f$ with respect to $s$ along this line is \[\frac{df}{ds}=\nabla f \cdot \frac{d\vec{r}}{ds} = \nabla f \cdot \vec{u}\]
-%     \item We call this the \textbf{directional derivative of $f$ in the direction of $\vec{u}$} and write it \[ \left(\frac{df}{ds}\right)_{\vec{u}} = D_{\vec{u}}f = \nabla f \cdot \vec{u}\]
-%     \item To find the directional derivative at a point $P_0$, evaluate the gradient at that point. \[ \left(\frac{df}{ds}\right)_{\vec{u},P_0} = \nabla f_{P_0} \cdot \vec{u}\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The \textbf{directional derivative of $f$ in the direction of $\vec{u}$} is \[ \left(\frac{df}{ds}\right)_{\vec{u}} = D_{\vec{u}}f = \nabla f \cdot \vec{u}\]
+    \item We may rewrite the directional derivative as \[\left(\frac{df}{ds}\right)_{\vec{u}}=\nabla f \cdot \vec{u}=|\nabla f||\vec{u}|\cos \theta = |\nabla f|\cos \theta\] where $\theta$ is the angle between $\nabla f$ and $\vec{u}$.
+    \item Thus the angle between $\nabla f$ and $\vec{u}$ determines the magnitude of the rate of change in the direction of $\vec{u}$, and for a fixed point $p_0$, there is a bounded range of possible values for directional derivatives:
+      \begin{enumerate}
+      \item When the angle between $\nabla f$ and $\vec{u}$ is $0$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ is maximized at $|\nabla f_{p_0}|$.
+      \item When the angle between $\nabla f$ and $\vec{u}$ is $\frac{\pi}{2}$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ vanishes to $0$.
+      \item When the angle between $\nabla f$ and $\vec{u}$ is $\pi$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ is minimized at $|\nabla f_{p_0}|$.
+      \end{enumerate}
+    \end{itemize}
     
-%   \item Directional Derivative Properties (pg. 743-4)
+  \item Gradients are Normal Vectors to Level Curves
+    \begin{itemize}
+      \item $\nabla f$ is normal to the level curve $f(x,y)=c$ for every point $(x,y)$ in the domain of $f$.
+      \item Thus $\<-f_x,f_y\>$ gives tangent vectors to level curves, and the tangent line to the level curve of $f$ at $(x_0,y_0)$ is given by \[y-y_0=m(x-x_0)\] where the slope of the line is $m = -\frac{f_x(x_0,y_0)}{f_y(x_0,y_0)}$.
+    \end{itemize}
+
+  \newpage
+
+  \item Gradient Rules
   
-%     \begin{itemize}
-%     \item We note that we may rewrite the directional derivative as \[\left(\frac{df}{ds}\right)_{\vec{u}}=\nabla f \cdot \vec{u}=|\nabla f||\vec{u}|\cos \theta = |\nabla f|\cos \theta\] where $\theta$ is the angle between $\nabla f$ and $\vec{u}$.
-%     \item Thus the angle between $\nabla f$ and $\vec{u}$ determines the magnitude of the rate of change in the direction of $\vec{u}$.
-%     \item For a fixed point $p_0$, there is a bounded range of possible values for directional derivatives. That is:
-%       \begin{enumerate}
-%       \item When the angle between $\nabla f$ and $\vec{u}$ is $0$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ is maximized at $|\nabla f_{p_0}|$.
-%       \item When the angle between $\nabla f$ and $\vec{u}$ is $\frac{\pi}{2}$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ vanishes to $0$.
-%       \item When the angle between $\nabla f$ and $\vec{u}$ is $\pi$ radians, $\left(\frac{df}{ds}\right)_{\vec{u},p_0}$ is minimized at $|\nabla f_{p_0}|$.
-%       \end{enumerate}
-%     \end{itemize}
-    
-%   \item Gradients are Normal Vectors to Level Curves (pg. 744)
-%     \begin{itemize}
-%     \item Consider the level-$c$ curve of $f(x,y)$ given by the equation \[f(x,y)=c\] and suppose it can be described by the vector function \[\vec{r}(t) = \langle x(t),y(t) \rangle\]
-%     \item Then it follows that for all $t$, \[f(x(t),y(t))=c\]
-%     \item Differentiating with respect to $t$, we find
-%   \[
-%   \begin{array}{r@{\ =\ }l}\ds
-%   \frac{d}{dt}[f(x,y)]
-%   &\ds
-%   \frac{d}{dt}[c]
-%   \\\ds
-%   \nabla f \cdot \frac{d\vec{r}}{dt}
-%   &\ds
-%   0
-%   \end{array}
-%   \]
-%     \item So $\nabla f$ is orthogonal to a tangent vector of the local level curve, so it is normal to the level curve itself.
-%     \end{itemize}
+      \begin{enumerate}
+      \item Constant Multiple Rule
+      \[\nabla(kf)=k\nabla f\]
+      \item Sum Rule
+      \[\nabla(f+g)=\nabla f+\nabla g\]
+      \item Difference Rule
+      \[\nabla(f-g)=\nabla f-\nabla g\]
+      \item Product Rule
+      \[\nabla(fg)=g(\nabla f)+f(\nabla g)\]
+      \item Quotient Rule
+      \[\nabla\left(\frac{f}{g}\right)=\frac{g(\nabla f)-f(\nabla g)}{g^2}\]
+      \end{enumerate}
   
-%   \item Find Tangent Vectors and Lines to Level Curves (pg. 744-5)
-%     \begin{itemize}
+  \item \textbf{Suggested Exercises for 12.5:}
   
-%     \item In section 12.4 we learned the level curve $f(x,y)=c$ has slopes given by $-\frac{f_x}{f_y}$.
-%     \item Thus the tangent line to the level curve of $f$ at $(x_0,y_0)$ is given by \[y-y_0=m(x-x_0)\] where $m = -\frac{f_x(x_0,y_0)}{f_y(x_0,y_0)}$.
-%     \end{itemize}
-%   \newpage
-%   \item Gradient Rules (pg. 745)
+    \begin{itemize}
+    \item Finding $\nabla f$ at a point: 1-8
+    \item Finding directional derivatives: 9-16
+    \item Finding the direction of maximal/minimal rate of change: 17-22
+    \item Finding the tangent line to a level curve: 23-26
+    \item Finding the direction of no instantaneous change: 27-28
+    \end{itemize}
   
-%       \begin{enumerate}
-%       \item Constant Multiple Rule
-%       \[\nabla(kf)=k\nabla f\]
-%       \item Sum Rule
-%       \[\nabla(f+g)=\nabla f+\nabla g\]
-%       \item Difference Rule
-%       \[\nabla(f-g)=\nabla f-\nabla g\]
-%       \item Product Rule
-%       \[\nabla(fg)=g(\nabla f)+f(\nabla g)\]
-%       \item Quotient Rule
-%       \[\nabla\left(\frac{f}{g}\right)=\frac{g(\nabla f)-f(\nabla g)}{g^2}\]
-%       \end{enumerate}
-  
-%   \item \textbf{Suggested Exercises for 12.5:}
-  
-%     \begin{itemize}
-%     \item Finding $\nabla f$ at a point: 1-8
-%     \item Finding directional derivatives: 9-16
-%     \item Finding the direction of maximal/minimal rate of change: 17-22
-%     \item Finding the tangent line to a level curve: 23-26
-%     \item Finding the direction of no instantaneous change: 27-28
-%     \end{itemize}
-  
-%   \end{itemize}
+  \end{itemize}
   
 %   \newpage
   
