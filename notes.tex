@@ -41,11 +41,14 @@
 \newcommand{\vecj}{\mathbf{j}}
 \newcommand{\veck}{\mathbf{k}}
 \newcommand{\dvar}[1]{\,d{#1}}
+\renewcommand{\d}[1]{\dvar{#1}}
 \renewcommand{\div}{\textrm{div}\,}
 \newcommand{\spin}{\textrm{spin}\,}
 \newcommand{\proj}{\textrm{proj}}
 \newcommand{\<}{\left<}
 \renewcommand{\>}{\right>}
+
+\newcommand{\p}{\partial}
 
 \newcommand{\Arctan}{\text{Arctan}}
 
@@ -1297,310 +1300,359 @@ v_1 & v_2 \\
     
   \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.1 Double and Iterated Integrals over Rectangles}
+  \centerline{\bf 13.1 Double and Iterated Integrals over Rectangles}
   
-%   In this section, we extend the idea of a definite integral for multiple variables.
+  \begin{itemize}
+
+  \item Volume as Integral of Area
+
+    \begin{itemize}
+    \item If $A(x)$ is the area of a solid's cross-section, then its volume is
+      \[
+        V  = \int_a^b A(x)\d{x}
+      \]
+    \end{itemize}
   
-%   \begin{itemize}
+  \item Double Integrals over Rectangles
   
-%   \item Double Integral as Volume
-  
-%     \begin{itemize}
-%     \item The definite integral \[\int\limits_I f(x)\, dx = \int_a^b f(x)\, dx\] over the interval $I=[a,b]\subseteq \mathbb{R}$ can be thought of as the net area (area above minus area below) between the curve given by $y=f(x)$ and the $x$-axis on that interval.
-%     \item Likewise, the double integral \[\iint_R f(x,y)\, dA\] over the rectangle $R \subseteq \mathbb{R}^2$ is defined to represent the net volume (volume above minus volume below) between the surface given by $z=f(x,y)$ and the $xy$-plane on that region.
-%     \item Let $f(x,y)$ be a continuous function of two variables and $R$ be the rectangle with corners $(a,c)$, $(b,c)$, $(b,d)$, and $(a,d)$, so that $a\leq x\leq b$ and $c\leq y\leq d$. Recalling Calculus II, to find $\iint_R f(x,y) dA$, we first find the cross-sectional net area \[A(y)=\int_{x=a}^{x=b} f(x,y) dx\] for an arbitrary value of $y$, and then integrate over $y\in[c,d]$ to get \[\iint_R f(x,y)\ dA = \int_{y=c}^{y=d} A(y)\ dy = \int_{y=c}^{y=d}\left(\int_{x=a}^{x=b} f(x,y)\ dx\right)dy\]
-%     \item We call this last integral an \textbf{iterated} or \textbf{repeated integral} and write it \[\int_c^d\int_a^b f(x,y)dxdy\]
-%     \item By using the cross-sectional area $A(x)=\int_{y=c}^{y=d} f(x,y) dy$, we may also find that \[\iint_R f(x,y) dA = \int_c^d\int_a^b f(x,y)dxdy = \int_a^b\int_c^d f(x,y)dydx\]
-%     \end{itemize}
+    \begin{itemize}
+    \item For a solid bounded above by $z=f(x,y)\geq 0$ over the rectangle \[R: a\leq x\leq b, c\leq y\leq d\] its cross-sectional area at $x$ is given by:
+      \[
+        A(x) = \int_c^d f(x,y)\d{y}
+      \]
+    \item Thus its volume is the \textbf{iterated integral}:
+      \[
+        V = \int_a^b A(x)\d{x} = \int_a^b\int_c^d f(x,y)\d{y}\d{x}
+      \]
+    \item Similarly, its cross-sectional area at $y$ and volume may be given by:
+      \[
+        A(y) = \int_a^b f(x,y)\d{x}
+      \]
+      \[
+        V = \int_c^d A(y)\d{y} = \int_c^d\int_a^b f(x,y)\d{x}\d{y}
+      \]
+    \item We also represent its volume as a \textbf{double integral}:
+      \[
+        V = \iint_R f(x,y)\d{A}
+      \]
+    \item If $f(x,y)\not\geq 0$, then the double integral represents \textbf{net volume}: volume above the $xy$-plane minus volume below the $xy$-plane.
+    \end{itemize}
     
-%   \item \textbf{Suggested Exercises for 13.1:}
+  \item \textbf{Suggested Exercises for 13.1:}
   
-%     \begin{itemize}
-%     \item Evaluating iterated integrals: 1-12
-%     \item Evaluating double integrals: 13-28
-%     \end{itemize}
+    \begin{itemize}
+    \item Evaluating iterated integrals with constant bounds: 1-12
+    \item Evaluating double integrals over rectangles: 13-28
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.2 Double Integrals over General Regions}
+  \centerline{\bf 13.2 Double Integrals over General Regions}
   
-%   In the previous section, we integrated over rectangles, which essentially was just the composition of two integrals over intervals. Now, we approach the goal of integrating over a general 2D region.
+  \begin{itemize}
   
-%   \begin{itemize}
+  \item Double Integrals over Nonrectangular Regions
   
-%   \item Double Integral over Bounded Nonrectangular Regions
+    \begin{itemize}
+    \item For a solid bounded above by $z=f(x,y)\geq 0$ over the region \[R: a\leq x\leq b, g_1(x)\leq y\leq g_2(x)\] its cross-sectional area at $x$ is given by:
+      \[
+        A(x) = \int_{g_1(x)}^{g_2(x)} f(x,y)\d{y}
+      \]
+    \item Thus its volume is the \textbf{iterated integral}:
+      \[
+        V = \int_a^b A(x)\d{x} = \int_a^b\int_{g_1(x)}^{g_2(x)} f(x,y)\d{y}\d{x}
+      \]
+    \item Similarly, for a solid bounded above by $z=f(x,y)\geq 0$ over the region \[R: h_1(y)\leq x\leq h_2(y), a\leq y\leq b\] its cross-sectional area at $x$ is given by:
+      \[
+        A(y) = \int_{h_1(y)}^{h_2(y)} f(x,y)\d{x}
+      \]
+      \[
+        V = \int_a^b A(y)\d{y} = \int_a^b\int_{h_1(y)}^{h_2(y)} f(x,y)\d{x}\d{y}
+      \]
+    \item We also represent its volume as a \textbf{double integral}:
+      \[
+        V = \iint_R f(x,y)\d{A}
+      \]
+    \item If $f(x,y)\not\geq 0$, then the double integral represents \textbf{net volume}: volume above the $xy$-plane minus volume below the $xy$-plane.
+    \end{itemize}
+
+  \newpage
+
+  \item Finding Limits of Integration
+      \begin{enumerate}
+      \item Sketch the region and label bounding curves
+      \item Determine if it is easier to describe bottom/top bounds \[g_1(x)\leq y\leq g_2(x)\] or left/right bounds \[h_1(y)\leq x\leq h_2(y)\]
+      \end{enumerate}
+      For $g_1(x)\leq y\leq g_2(x)$:
+      \begin{enumerate}
+      \setcounter{enumi}{2}
+      \item Find the $x$-limits of integration $a,b$ by finding the leftmost, rightmost $x$-values in the region:
+        \[
+          \iint_R f(x,y)\d{A} = \int_a^b\int_{g_1(x)}^{g_2(x)}f(x,y)\d{y}\d{x}
+        \]
+      \end{enumerate}
+      For $h_1(y)\leq x\leq h_2(y)$:
+      \begin{enumerate}
+      \setcounter{enumi}{2}
+      \item Find the $y$-limits of integration $c,d$ by finding the bottommost, topmost $y$-values in the region:
+        \[
+          \iint_R f(x,y)\d{A} = \int_c^d\int_{h_1(y)}^{h_2(y)}f(x,y)\d{x}\d{y}
+        \]
+      \end{enumerate}
   
-%     \begin{itemize}
-%     \item As before, the double integral \[\iint_R f(x,y)\, dA\] over the bounded region $R \subseteq \mathbb{R}^2$ is defined to represent the net volume (volume above minus volume below) between the surface given by $z=f(x,y)$ and the $xy$-plane on that region.
-%     \item Let $R$ be a region in the $xy$-plane bounded by the functions $g_1(x)\leq g_2(x)$ and the vertical lines $x=a$ and $x=b$ for $a\leq b$.
-%     \item Let $f(x,y)$ be a continuous function. We can compute the cross-sectional net area for an arbitrary value of $x$ as \[A(x) = \int_{g_1(x)}^{g_2(x)} f(x,y)\, dy\]
-%     \item We may then integrate over $a\leq x\leq b$ to find the net volume \[\iint_R f(x,y)\, dA = \int_a^b A(x)\,dx \]\[= \int_a^b\left(\int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\right)dx=\int_a^b\int_{g_1(x)}^{g_2(x)} f(x,y)\,dy\,dx\]
-%     \item Similarly, if $R$ is the region bounded by the functions $h_1(y)\leq h_2(y)$ and the horizontal lines $y=c$ and $y=d$ for $c\leq d$, then we may compute \[\iint\limits_R f(x,y) \,dA = \int_c^d\int_{h_1(y)}^{h_2(y)} f(x,y) \, dx \, dy\]
-%     \end{itemize}
-%   \newpage
-%   \item Finding Limits of Integration
+  \item Swapping Variables of Integration
   
-%     \begin{itemize}
-%     \item Often you'll have the region of integration $R$ described, and you need to convert this to limits of integration.
-%     \item Follow these steps:
-%       \begin{enumerate}
-%       \item Sketch the region of integration and label the bounding curves.
-%       \item Determine if it is easier to describe the top and bottom of the region as functions of $x$ or if it is easier to describe the left and right of the curve as functions of $y$.
-%         \begin{itemize}
-%         \item \textbf{If functions of $x$ are chosen:}
-%         \end{itemize}
-%       \item Find the $x$-limits of integration $a,b$ by finding the leftmost (for $a$) and rightmost (for $b$) $x$-values in the region.
-%       \item Find the $y$-limits of integration $g_1(x),g_2(x)$ by using the functions giving the bottom (for $g_1$) and top (for $g_2$) portions of the boundary.
-%       \item Plug these values into the integral \[\int_a^b\int_{g_1(x)}^{g_2(x)}f(x,y)\,dy\,dx\]
-%         \begin{itemize}
-%         \item \textbf{If functions of $y$ are chosen:}
-%         \end{itemize}
-%       \setcounter{enumi}{2}
-%       \item Find the $y$-limits of integration $c,d$ by finding the leftmost (for $c$) and rightmost (for $d$) $y$-values in the region.
-%       \item Find the $x$-limits of integration $h_1(y),h_2(y)$ by using the functions giving the left (for $h_1$) and right (for $h_2$) portions of the boundary.
-%       \item Plug these values into the integral \[\int_c^d\int_{h_1(y)}^{h_2(y)}f(x,y)\,dx\,dy\]
-%       \end{enumerate}
-%     \end{itemize}
-  
-%   \item Swapping Variables of Integration
-  
-%     \begin{itemize}
-%     \item Some double integrals may be difficult to evaluate using one particular order of integration (e.g. $\iint f \,dx\,dy$ versus $\iint f\,dy\,dx$).
-%     \item In that case, you can swap the order of integration by making an appropriate change of the limits of integration, using the above steps.
-%     \end{itemize}
-%   \newpage
-%   \item Properties of Double Integrals
-  
-%     \begin{itemize}
-%     \item Let $f(x,y),g(x,y)$ be continuous.
-%       \begin{enumerate}
-%       \item Zero Integral
-%         \[\iint\limits_R 0\,dA = 0\]
-%       \item Constant Multiple
-%         \[\iint\limits_R cf(x,y)\,dA = c\iint\limits_R f(x,y)\,dA\]
-%       \item Sum/Difference
-%         \[\iint\limits_R f(x,y)\pm g(x,y)\,dA=\iint\limits_R f(x,y)\,dA\pm\iint\limits_R g(x,y)\,dA\]
-%       \item Domination
+    \begin{itemize}
+    \item You can only swap the order of integration of an iterated integral by first converting to a double-integral, and using the above steps.
+    \end{itemize}
+
+  \item Properties of Double Integrals
+      \begin{enumerate}
+      \item Zero Integral
+        \[\iint\limits_R 0\,dA = 0\]
+      \item Constant Multiple
+        \[\iint\limits_R cf(x,y)\,dA = c\iint\limits_R f(x,y)\,dA\]
+      \item Sum/Difference
+        \[\iint\limits_R f(x,y)\pm g(x,y)\,dA=\iint\limits_R f(x,y)\,dA\pm\iint\limits_R g(x,y)\,dA\]
+      \item Domination
       
-%       If $f(x,y)\leq g(x,y)$ for all $(x,y)\in R$, then
-%         \[\iint\limits_R f(x,y)\,dA \leq \iint\limits_R g(x,y)\,dA\]
-%       \item Additivity
+      If $f(x,y)\leq g(x,y)$ for all $(x,y)\in R$, then
+        \[\iint\limits_R f(x,y)\,dA \leq \iint\limits_R g(x,y)\,dA\]
+      \item Additivity
       
-%       If $R$ can be split into two regions $R_1,R_2$, then
-%         \[\iint\limits_R f(x,y)\,dA = \iint\limits_{R_1} f(x,y)\,dA + \iint\limits_{R_2} f(x,y)\,dA\]
-%       \end{enumerate}
-%     \end{itemize}
+      If $R$ can be split into two regions $R_1,R_2$, then
+        \[\iint\limits_R f(x,y)\,dA = \iint\limits_{R_1} f(x,y)\,dA + \iint\limits_{R_2} f(x,y)\,dA\]
+      \end{enumerate}
     
-%   \item \textbf{Suggested Exercises for 13.2:}
+  \item \textbf{Suggested Exercises for 13.2:}
   
-%     \begin{itemize}
-%     \item Evaluating nonrectangular double integrals: 1-6, 11-14
-%     \item Finding limits of integration: 7-10, 33-44
-%     \item Swapping order of integration: 25-32
-%     \end{itemize}
+    \begin{itemize}
+    \item Evaluating nonrectangular double integrals: 1-6, 11-14
+    \item Finding limits of integration: 7-10, 33-44
+    \item Swapping order of integration: 25-32
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.3 Area by Double Integration}
+  \centerline{\bf 13.3 Area by Double Integration}
   
-%   Since the area of a region is equal to the volume of a cylinder of height $1$ unit with that region as its base, we have a new technique for computing the area of a region. We also may find a way to define the average value of a function of two variables.
+  \begin{itemize}
   
-%   \begin{itemize}
-  
-%   \item Areas of Bounded Regions in the Plane
+  \item Areas of Regions in the Plane
     
-%     \begin{itemize}
-%     \item The area of a bounded region $R$ in the plane is given by \[\iint\limits_R\,dA=\iint\limits_R 1\,dA\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The area of a region $R$ in the plane is \[A = \iint\limits_R\,dA=\iint\limits_R 1\,dA\]
+    \end{itemize}
     
-%   \item Average Value of a Function of Two Variables
+  \item Average Value of a Function of Two Variables
   
-%     \begin{itemize}
-%     \item Recall that the average value of a single variable function $f(x)$ over an interval $I=[a,b]$ is given by \[\frac{1}{b-a}\int_a^b f(x) \,dx = \frac{1}{\textrm{length of }I}\int_I f(x)\,dx\]
-%     \item We can extend this to functions of two variables by defining its average value over a bounded region $R$ to be \[\frac{1}{\textrm{area of }R}\iint\limits_R f(x,y)\,dA\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The average value of $f(x,y)$ over the region $R$ is defined to be \[\textrm{Avg Val} = \frac{1}{\textrm{area of }R}\iint\limits_R f(x,y)\,dA\]
+    \end{itemize}
     
-%   \item \textbf{Suggested Exercises for 13.3:}
+  \item \textbf{Suggested Exercises for 13.3:}
   
-%     \begin{itemize}
-%     \item Finding areas of regions: 1-8
-%     \item Finding average values of functions: 15-18
-%     \end{itemize}
+    \begin{itemize}
+    \item Finding areas of regions: 1-8
+    \item Finding average values of functions: 15-18
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.5 Triple Integrals in Rectangular Coordinates}
+  \centerline{\bf 13.5 Triple Integrals in Rectangular Coordinates}
   
-%   \begin{itemize}
+  \begin{itemize}
+
+  \item Hypervolume as Integral of Volume
+
+    \begin{itemize}
+    \item A hypersolid is a region of $\mathbb{R}^4$, that is, a set of ordered $4$-tuples $(x,y,z,w)$.
+    \item If $V(x)$ is the volume of a four-dimensional hypersolid's cross-section, then its hypervolume is
+      \[
+        HV  = \int_a^b V(x)\d{x}
+      \]
+    \item Applications include modeling density within 3D space: $(x,y,z,\delta)$.
+    \item Hypervolume in $xyz\delta$-space represents mass.
+    \end{itemize}
   
-%   \item Triple Integrals
+  \item Triple Integrals over Rectangular Boxes
+  
+    \begin{itemize}
+    \item For a hypersolid bounded above by $w=f(x,y,z)\geq 0$ over the rectangular box \[D: a_1\leq x\leq b_1, a_2\leq y\leq b_2, a_3\leq z\leq b_3 \] its cross-sectional volume at $x$ is given by:
+      \[
+        V(x) = \int_{a_2}^{b_2}\int_{a_3}^{b_3} f(x,y,z)\d{z}\d{y}
+      \]
+    \item Thus its hypervolume is the iterated integral:
+      \[
+        HV = \int_{a_1}^{b_1} V(x)\d{x} = \int_{a_1}^{b_1}\int_{a_2}^{b_2}\int_{a_3}^{b_3} f(x,y,z)\d{z}\d{y}\d{x}
+      \]
+    \item The \textit{constant bounds} of this iterated integral and differentials may be swapped around.
+    \item We also represent its hypervolume as the \textbf{triple integral}
+      \[
+        HV = \iiint_D f(x,y,z)\d{V}
+      \]
+    \item If $w=f(x,y,z)\not\geq 0$, then the triple integral represents net hypervolume.
+    \end{itemize}
+  \newpage
+  
+  \item Triple Integrals over Other Solids
+  
+    \begin{itemize}
+    \item For a general solid with bottom/top surface 
+      \[
+        h_1(x,y)\leq z \leq h_2(x,y)
+      \] 
+      and shadow in the $xy$ plane bounded by 
+      \[
+        a\leq x\leq b, g_1(x)\leq y\leq g_2(x)
+      \]
+      the triple integral over the solid may be expressed by the iterated integral:
+      \[
+        \iiint_D f(x,y,z)\d{V} = \int_{a}^{b}\int_{g_1(x)}^{g_2(x)}\int_{h_1(x,y)}^{h_2(x,y)} f(x,y,z)\d{z}\d{y}\d{x}
+      \]
+    \item Other orders of integration can be attained by using shadows in other coordinate planes and/or swapping order of integration for the shadow.
+    \end{itemize}
+  
+  \item Volumes of Regions in Space
     
-%     \begin{itemize}
-%     \item Just as length can be generalized into area, and area can be generalized into volume, we can generalize volume into ``hypervolume''.
-%     \item The triple integral \[\iiint\limits_D f(x,y,z)\, dV\] over the bounded region $D \subseteq \mathbb{R}^3$ is defined to represent the net ``hypervolume'' over the region.
-%     \end{itemize}
+    \begin{itemize}
+    \item The volume of a solid $D$ in space is \[V = \iiint\limits_D\,dV=\iiint\limits_D 1\,dV\]
+    \end{itemize}
     
-%   \item Computing Triple Integrals
+  \item Average Value of a Function of Three Variables
   
-%     \begin{itemize}
-%     \item Finding hypervolumes can be thought of as integrating over cross-sectional volumes - snapshots of the volume occurring when we fix one variable.
-%     \item Suppose $w=f(x,y,z)$, and let $D\subseteq \mathbb{R}^3$. If we fix $x$ in $w=f(x,y,z)$ and consider $f$ as a function of only $y,z$, the cross-sectional volume is given by the double integral \[V(x) = \iint\limits_{R(x)} f(x,y,z)\,dz\,dy\] where $R(z)$ is the cross-sectional area at the fixed value of $x$.
-%     \item Since the region $R(x)$ depends on $x$, its equivalent limits of integration are reliant on $x$ as well, giving \[V(x) = \int_{y=g_1(x)}^{y=g_2(x)}\int_{z=h_1(x,y)}^{z=h_2(x,y)}f(x,y,z)\,dz\,dy\]
-%     \item Finally, to find the hypervolume, we integrate $V(x)$ over the appropriate interval $[a,b]$ to find \[\iiint\limits_D f(x,y,z)\, dV=\int_{x_1}^{x_2}V(x) dt = \int_{x=a}^{x=b} \int_{y=g_1(x)}^{y=g_2(x)}\int_{z=h_1(x,y)}^{z=h_2(x,y)}f(x,y,z)\,dz\,dy\,dx\]
-%     \end{itemize}
-%   \newpage  
-%   \item Finding Limits of Integration
-  
-%     \begin{itemize}
-%     \item To fill in the limits of integration, look for the following on your solid $D\subseteq \mathbb{R}^3$ of integration with a shadow $R=\{(x,y):(x,y,z)\in D\}\subseteq \mathbb{R}^2$:
-%       \begin{itemize}
-%       \item Functions $f_1(x,y),f_2(x,y)$ such that $z=f_1(x,y)$ is the bottom of the solid $D$ and $z=f_2(x,y)$ is the top of the solid $D$.
-%       \item Functions $g_1(x),g_2(x)$ such that $y=g_1(x)$ is the bottom of the region $R$ and $y=g_2(x)$ is the top of the region $R$.
-%       \item Numbers $a,b$ such that $x=a$ is on the leftmost point of $R$ and $x=b$ is on the rightmost point of $R$.
-%       \end{itemize}
-%     \item You may need to relabel $x,y,z$ to make this work.
-%     \end{itemize}
+    \begin{itemize}
+    \item The average value of $f(x,y,z)$ over the solid $D$ is defined to be \[\textrm{Avg Val} = \frac{1}{\textrm{volume of }D}\iiint\limits_D f(x,y,z)\,dV\]
+    \end{itemize}
     
-%   \item Volume with Triple Integrals
+  \item Triple Integral Properties
   
-%     \begin{itemize}
-%     \item Similar to area, the volume of a 3D solid $D$ can be computed by the triple integral \[\iiint\limits_D\, dV \]
-%     \end{itemize}
-    
-%   \item Average Value of a Three-Variable Function
-  
-%     \begin{itemize}
-%     \item Similar to functions of one and two variables, we define the average value of $F(x,y,z)$ over the closed bounded solid $D\subseteq \mathbb{R}^3$ to be \[\frac{1}{\text{volume of } D} \iiint\limits_D F(x,y,z)\, dV\]
-%     \end{itemize}
-    
-%   \item Triple Integral Properties
-  
-%     \begin{itemize}
-%     \item The analogues of the properties for double integrals in Section 13.2 also hold for triple integrals.
-%     \end{itemize}
+    \begin{itemize}
+    \item The properties for double integrals in Section 13.2 similarly hold for triple integrals.
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 13.5:}
+  \item \textbf{Suggested Exercises for 13.5:}
   
-%     \begin{itemize}
-%     \item Evaluating triple integrals: 7-20
-%     \item Finding volumes of solids: 23-36
-%     \item Finding the average value of functions: 37-40
-%     \end{itemize}
+    \begin{itemize}
+    \item Evaluating triple integrals: 7-20
+    \item Finding volumes of solids: 23-36
+    \item Finding the average value of functions: 37-40
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.8 Substitution in Multiple Integrals}
+  \centerline{\bf 13.8 Substitution in Multiple Integrals}
   
-%   \begin{itemize}
+  \begin{itemize}
   
-%   \item Transformations
+  \item Transformations
   
-%     \begin{itemize}
-%     \item Two similar regions in 2D space can be related by a ``nice'' pair of functions $x(u,v)$ and $y(u,v)$ that map points in a $uv$ plane to the $xy$ plane.
-%     \item Similarly, two similar solids in 3D space can be identified by a transformation given by three ``nice'' functions $x(u,v,w)$, $y(u,v,w)$, $z(u,v,w)$ that map points in a $uvw$ space to the $xyz$ space.
-%     \end{itemize}
+    \begin{itemize}
+    \item Two similar regions in 2D space can be transformed by a ``nice'' pair of functions \[\vec{r}(u,v) = \vec{r}(\vec{s}) = \<x(\vec{s}),y(\vec{s})\> = \<x(u,v),y(u,v)\>\] that map points in a $uv$ plane to the $xy$ plane.
+    \item Two similar solids in 3D space can be transformed by a ``nice'' triple of functions \[\vec{r}(u,v,w) = \vec{r}(\vec{s}) = \<x(\vec{s}),y(\vec{s}),z(\vec{s})\> = \<x(u,v,w),y(u,v,w),z(u,v,w)\>\] that map points in a $uvw$ space to the $xyz$ space.
+    \end{itemize}
   
-%   \item The Jacobian
+  \item The Jacobian
   
-%     \begin{itemize}
-%     \item The Jacobian of a 2D transformation given by $x(u,v)$, $y(u,v)$ is the determinant
-% \[
-% J(u,v) = \frac{\partial (x,y)}{\partial (u,v)} =
-% \begin{array}{|c c|}
-% \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-% \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\
-% \end{array}
-% \]
-%     \item The Jacobian of a 3D transformation given by $x(u,v,w)$, $y(u,v,w)$, $z(u,v,w)$ is the determinant
-% \[
-% J(u,v,w) = \frac{\partial (x,y,z)}{\partial (u,v,w)} =
-% \begin{array}{|c c c|}
-% \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
-% \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
-% \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w} \\
-% \end{array}
-% \]
-%     \end{itemize}
+    \begin{itemize}
+    \item The Jacobian of a 2D transformation given by $\vec{r}(u,v)$ is the determinant
+\[
+\vec{r}_J(u,v) = \frac{\p (x,y)}{\p (u,v)} = \frac{\p\vec{r}}{\p\vec{s}} =
+\begin{array}{|c c|}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} \\
+\end{array}
+\]
+    \item The Jacobian of a 3D transformation given by $\vec{r}(u,v,w)$ is the determinant
+\[
+\vec{r}_J(u,v,w) = \frac{\partial (x,y,z)}{\partial (u,v,w)} = \frac{\p\vec{r}}{\p\vec{s}} =
+\begin{array}{|c c c|}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w} \\
+\end{array}
+\]
+    \end{itemize}
     
-%   \item 2D Substitution
+  \item 2D Substitution
   
-%     \begin{itemize}
-%     \item Suppose that the region $R$ in the $xy$-plane is the result of applying the pair of functions $x(u,v)$, $y(u,v)$ to the region $G$ in the $uv$-plane.
-%     \item Then it follows that \[\iint\limits_R f(x,y)\,dx\,dy = \iint\limits_G f(x(u,v),y(u,v))|J(u,v)|\,du\,dv\]
-%     \item By applying the formula above, you can get a new integral with simpler limits of integration, or a simpler integrand.
-%     \end{itemize}
+    \begin{itemize}
+    \item Suppose that the region $R$ in the $xy$-plane is the result of applying the transformation $\vec{r}(u,v)$ to the region $G$ in the $uv$-plane.
+    \item Then it follows that \[\iint\limits_R f(x,y)\,dx\,dy = \iint\limits_G f(x(u,v),y(u,v))|\vec{r}_J(u,v)|\,du\,dv\]
+    \end{itemize}
+
+  \newpage
     
-%   \item 3D Substitution
+  \item 3D Substitution
   
-%     \begin{itemize}
-%     \item Suppose that the region $R$ in $xyz$ space is the result of applying the transformation $x(u,v,w)$, $y(u,v,w)$, $z(u,v,w)$ to the region $G$ in $uvw$ space.
-%     \item Then it follows that \[\iiint\limits_R f(x,y,z)\,dx\,dy\,dz \]\[= \iiint\limits_G f(x(u,v,w),y(u,v,w),z(u,v,w))|J(u,v,w)|\,du\,dv\,dw\]
-%     \item By applying the formula above, you can get a new integral with simpler limits of integration, or a simpler integrand.
-%     \end{itemize}
+    \begin{itemize}
+    \item Suppose that the solid $D$ in $xyz$ space is the result of applying the transformation $\vec{r}(u,v,w)$ to the region $H$ in $uvw$ space.
+    \item Then it follows that \[\iiint\limits_D f(x,y,z)\,dx\,dy\,dz \]\[= \iiint\limits_H f(x(u,v,w),y(u,v,w),z(u,v,w))|\vec{r}_J(u,v,w)|\,du\,dv\,dw\]
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 13.8:}
+  \item \textbf{Suggested Exercises for 13.8:}
   
-%     \begin{itemize}
-%     \item 2D Jacobians, Transformations, and substitutions: 1-10
-%     \end{itemize}
+    \begin{itemize}
+    \item 2D Jacobians, Transformations, and substitutions: 1-10
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.4 Double Integrals in Polar Form}
+  \centerline{\bf 13.4 Double Integrals in Polar Form}
   
-%   \begin{itemize}
+  \begin{itemize}
   
-%   \item Integrating over Regions expressed using Polar Coordinates
+  \item Integrating over Regions expressed using Polar Coordinates
     
-%     \begin{itemize}
-%     \item Using the change of variables $x(r,\theta)=r\cos\theta$ and $y(r,\theta)=r\sin\theta$, we may integrate \[\iint\limits_R f(x,y)\, dA = \iint\limits_G f(r\cos\theta,r\sin\theta)\,r\dvar{r}\dvar{\theta}\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The polar coordinate transformation \[\vec{r}(r,\theta) = \<r\cos\theta, r\sin\theta\>\] from polar $G$ into Cartesian $R$ yields \[\iint\limits_R f(x,y)\, dA = \iint\limits_G f(r\cos\theta,r\sin\theta)\,r\dvar{r}\dvar{\theta}\]
+    \end{itemize}
       
-%   \item \textbf{Suggested Exercises for 13.4:}
+  \item \textbf{Suggested Exercises for 13.4:}
   
-%     \begin{itemize}
-%     \item Changing Cartesian integrals to polar integrals: 1-16
-%     \item Finding integrals over polar regions: 17-22
-%     \end{itemize}
+    \begin{itemize}
+    \item Changing Cartesian integrals to polar integrals: 1-16
+    \item Finding integrals over polar regions: 17-22
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 13.7 Triple Integrals in Cylindrical and Spherical Coordinates}
+  \centerline{\bf 13.7 Triple Integrals in Cylindrical and Spherical Coordinates}
   
-%   \begin{itemize}
+  \begin{itemize}
   
-%   \item Cylindrical Coordinates
-%     \begin{itemize}
-%     \item Using the change of variables $x(r,\theta,z)=r\cos\theta$, $y(r,\theta,z)=r\sin\theta$, and $z(r,\theta,z)=z$, we may integrate \[\iiint\limits_D F(x,y,z)\, dV = \iiint\limits_G F(r\cos\theta,r\sin\theta,z)\,r\dvar{z}\dvar{r}\dvar{\theta}\]
-%     \end{itemize}
+  \item Cylindrical Coordinates
+    \begin{itemize}
+    \item The cylindrical coordinate transformation \[\vec{r}(r,\theta,z) = \<r\cos\theta, r\sin\theta, z\>\] from cylindrical $H$ into Cartesian $D$ yields \[\iiint\limits_D f(x,y,z)\d{V} = \iiint\limits_H f(r\cos\theta,r\sin\theta,z)\,r\d{r}\d{\theta}\d{z}\]
+    \end{itemize}
   
-%   \item Spherical Coordinates
-%     \begin{itemize}
-%     \item Using the change of variables $x(\rho,\phi,\theta)=\rho\sin\phi\cos\theta$, $y(\rho,\phi,\theta)=\rho\sin\phi\sin\theta$, and $z(\rho,\phi,\theta)=\rho\cos\phi$, we may integrate \[\iiint\limits_D F(x,y,z)\, dV = \iiint\limits_G F(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi) \,\rho^2\sin\phi\dvar{\rho}\dvar{\phi}\dvar{\theta} \]
-%     \end{itemize}
+  \item Spherical Coordinates
+    \begin{itemize}
+    \item The spherical coordinate transformation \[\vec{r}(\rho,\phi,\theta)=\<\rho\sin\phi\cos\theta, \rho\sin\phi\sin\theta, \rho\cos\phi\>\] from spherical $H$ into Cartesian $D$ yields \[\iiint\limits_D f(x,y,z)\, dV = \iiint\limits_H f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi) \,\rho^2\sin\phi\dvar{\rho}\dvar{\phi}\dvar{\theta} \]
+    \end{itemize}
       
-%   \item \textbf{Suggested Exercises for 13.7:}
+  \item \textbf{Suggested Exercises for 13.7:}
   
-%     \begin{itemize}
-%     \item Cylindrical coordinate integrals: 1-20
-%     \item Finding integrals over polar regions: 21-38
-%     \end{itemize}
+    \begin{itemize}
+    \item Cylindrical coordinate integrals: 1-20
+    \item Finding integrals over polar regions: 21-38
+    \end{itemize}
   
-%   \end{itemize}
+  \end{itemize}
   
 %   \newpage
   
