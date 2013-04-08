@@ -1654,377 +1654,381 @@ v_1 & v_2 \\
   
   \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.1 Line Integrals}
+  \centerline{\bf 14.1 Line Integrals}
+
+  \begin{itemize}
   
-%   A function of three variables evaluated over a curve in 3D space behaves like a function of one variable evaluated over the real line. In this section we investigate how to evaluate line integrals over such curves.
+  \item Line Integrals with Respect to Arclength
   
-%   \begin{itemize}
-  
-%   \item Line Integrals with Respect to Arclength
-  
-%     \begin{itemize}
-%     \item We may define \[\int\limits_C f(x,y,z)\dvar{s}\] to be the \textbf{line integral over a curve $C$}, which represents the area of a ``ribbon'' with a base at the curve $C$ and thickness given by $f(x,y,z)$ for each point $(x,y,z)\in C$.
-%     \item Suppose a curve $C$ in $\mathbb{R}^3$ is defined by the smooth vector function $\vec{r}(s)=\<x(s),y(s),z(s)\>$ for $a\leq s\leq b$.
-%     \item It follows then that \[\int\limits_C f(x,y,z)\dvar{s} = \int_{s=a}^{s=b} f(x(s),y(s),z(s))\dvar{s}\]
-%     \item Now suppose a curve $C$ in $\mathbb{R}^3$ is defined by the smooth vector function $\vec{r}(t)=\<x(t),y(t),z(t)\>$ for $a\leq t\leq b$.
-%     \item We may then use \[\int\limits_C f(x,y,z)\dvar{s}=\int_{t=a}^{t=b} f(x(t),y(t),z(t))|\vec{v}(t)|\dvar{t}\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The area of the ribbon with base along the curve $C$ in $xyz$ space and height given by $f(x,y,z)$ is given by the \textbf{line integral of $f(x,y,z)$ over $C$ with respect to arclength $s$}: \[\int\limits_C f(x,y,z)\dvar{s}\]
+    \item Arclength line integrals can be evaulated by finding a smooth parametrization $\vec{r}(s)$ of the curve $C$ with respect to arclength $s$ for $a\leq s \leq b$: \[\int\limits_C f(x,y,z)\dvar{s} = \int_{s=a}^{s=b} f(x(s),y(s),z(s))\dvar{s}\]
+    \item If $\vec{r}(t)$ is an arbitrary parametrization of $C$ for $a \leq t \leq b$, then \[\int\limits_C f(x,y,z)\dvar{s}=\int_{t=a}^{t=b} f(x(t),y(t),z(t))|\vec{v}(t)|\dvar{t}\]
+    \end{itemize}
     
-%   \item Additivity
-  
-%     \begin{itemize}
-%     \item If $C$ can be partitioned into two curves $C_1$ and $C_2$, then \[\int\limits_C f\dvar{s}=\int\limits_{C_1}f\dvar{s}+\int\limits_{C_2}f\dvar{s}\]
-%     \end{itemize}
-    
-%   \newpage
-  
-%   \item Reversing Curves
-  
-%     \begin{itemize}
-%     \item If $C$ and $-C$ designate the same curve oriented in opposite directions, then \[\int\limits_{C} f\dvar{s} = \int\limits_{-C} f\dvar{s}\]
-%     \end{itemize}
+  \item Additivity
+
+   \[\int\limits_{C_1+C_2} f\dvar{s}=\int\limits_{C_1}f\dvar{s}+\int\limits_{C_2}f\dvar{s}\]
+
+  \item Reversing Arclength Line Integrals
+
+  \[\int\limits_{C} f\dvar{s} = \int\limits_{-C} f\dvar{s}\]
         
-%   \item \textbf{Suggested Exercises for 14.1:}
+  \item \textbf{Suggested Exercises for 14.1:}
   
-%     \begin{itemize}
-%     \item Identifying vector equations for graphs: 1-8
-%     \item Evaluating line integrals: 9-22
-%     \end{itemize}
+    \begin{itemize}
+    \item Identifying vector equations for graphs: 1-8
+    \item Evaluating line integrals: 9-22
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.2 Vector Fields, Work, Circulation, and Flux}
+  \centerline{\bf 14.2 Vector Fields, Work, Circulation, and Flux}
   
-%   \begin{itemize}
+  \begin{itemize}
   
-%   \item Line Integrals with Respect to Variables
+  \item Line Integrals with Respect to Variables
   
-%     \begin{itemize}
-%       \item Often it will be useful to consider \textbf{line integrals with respect to $x$, $y$, or $z$ over a directed curve $C$}.
-%       \item These integrals, of the form \[\int\limits_C f(x,y,z)\,dx\] (or $dy$ or $dz$) may be computed by parametrizing $C$ with a smooth vector function $\vec{r}(t)=\<x(t),y(t),z(t)\>$ for $a\leq t\leq b$ and evaluating \[\int\limits_C f(x,y,z)\dvar{x} = \int_{t=a}^{t=b} f(x(t),y(t),z(t))\,\frac{dx}{dt}\dvar{t}\]
-%       \item Such integrals have the property \[\int\limits_{-C} f\dvar{x} = -\int\limits_{C} f\dvar{x}\]
-%     \end{itemize}
+    \begin{itemize}
+      \item The net projected area of the ribbon with base curve $C$ and height $f(x,y,z)$ with respect to the $x$-axis is given by the \textbf{line integral of $f(x,y,z)$ over $C$ with respect to $x$}: \[\int\limits_C f(x,y,z)\,dx\] (similar for $y$, $z$)
+      \item Line integrals with respect to variables can be evaluated by finding a parametrization $\vec{r}(t)$ for the curve $C$:
+        \[
+          \int\limits_C f(x,y,z)\,dx = \int_a^b f(x(t),y(t),z(t))\frac{dx}{dt}\,dt
+        \]
+      \item Such integrals have the property \[\int\limits_{-C} f\dvar{x} = -\int\limits_{C} f\dvar{x}\]
+    \end{itemize}
   
-%   \item Vector Fields
+  \item Vector Fields
   
-%     \begin{itemize}
-%     \item A \textbf{vector field} is a function $\vec{F}(x,y,z)=\<M(x,y,z),N(x,y,z),P(x,y,z)\>$ which assigns a vector to each point in its domain.
-%     \item We've seen an important example of a vector field, the \textbf{gradient field} $\nabla f = \<\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\>$.
-%     \end{itemize}
+    \begin{itemize}
+    \item A \textbf{vector field} is a function \[\vec{F}(x,y,z)=\<M(x,y,z),N(x,y,z),P(x,y,z)\>\] ($\vec{F}=\<M,N,P\>$ for short) which assigns a vector to each point in its domain.
+    \item Gradient functions $\nabla f=\<f_x(x,y,z),f_y(x,y,z),f_z(x,y,z)\>$ and transformations $\<x(u,v,w),y(u,v,w),z(u,v,w)\>$ are examples of vector fields.
+    \end{itemize}
   
-%   \item Line Integrals over Vector Fields
+  \item Line Integrals of Vector Fields
   
-%     \begin{itemize}
-%     \item We often wish to compute the \textbf{line integral of a vector field over a directed curve $C$}, using \[\int\limits_C \vec{F}\cdot d\vec{r} = \int\limits_C M(x,y,z)\,dx + \int\limits_C N(x,y,z)\,dx + \int\limits_C P(x,y,z)\,dz\]
-%     \item The notation $\ds \int\limits_C M\,dx + N\,dy + P\,dz$ is often used for short.
-%     \item It follows that \[\int\limits_{-C} \vec{F}\cdot d\vec{r} = - \int\limits_C \vec{F}\cdot d\vec{r}\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The \textbf{line integral of $\vec{F}=\<M,N,P\>$ over $C$} is given by 
+      \[\int\limits_C \vec{F}\cdot d\vec{r} = \int\limits_C M\,dx + N\,dx + P\,dz\]
+    gives the sum of the line integrals of each component of $\vec{F}$ with respect to each variable $x,y,z$.
+    \item These line integrals can be calculated by using parametrizations of $C$: 
+      \[
+        \int\limits_C \vec{F}\cdot d\vec{r} = 
+        \int\limits_C M\,dx + N\,dx + P\,dz = 
+        \int_a^b \left(M\frac{dx}{dt} + N\frac{dx}{dt} + P\frac{dz}{dt}\right)\,dt 
+      \]
+      \[
+        =
+        \int_a^b \vec{F}\cdot\vec{v}\,dt =
+        \int_a^b \vec{F}\cdot\vec{T}\,ds 
+      \]
+    \item It follows that \[\int\limits_{-C} \vec{F}\cdot d\vec{r} = - \int\limits_C \vec{F}\cdot d\vec{r}\]
+    \end{itemize}
     
-%   \item Work over a Smooth Curve
+  \item Work over a Smooth Curve
   
-%     \begin{itemize}
-%     \item Recall that the work done over a displacement vector $\vec{D}=\<d_x,d_y,d_z\>$ by a force $\vec{F}=\<M,N,P\>$ is \[W = \vec{F} \cdot \vec{D}=Md_x+Nd_y+Pd_z\]
-%     \item So by subdividing a portion of a smooth curve $C$ with vector function $\vec{r}(t)$ over $t\in[a,b]$ by a force $\vec{F}(x,y,z)$, we find an approximation of the work done by the sum \[W \approx \sum_{i=1}^n \vec{F}(x_i,y_i,z_i)\cdot\Delta\vec{r_i}\]\[ = \sum_{i=1}^n \left(M(x_i,y_i,z_i)\Delta x_i + N(x_i,y_i,z_i)\Delta y_i + P(x_i,y_i,z_i)\Delta z_i\right) \]
-%     \item Limiting this Riemann sum to infinity results in the definition \[W = \int\limits_C \vec{F}\cdot d\vec{r} = \int\limits_C M\,dx+N\,dy+P\,dz\]
-%     \item This may also be computed using \[W = \int\limits_C M\,dx+N\,dy+P\,dz = \int\limits_C \vec{F}\cdot\vec{v}\,dt = \int\limits_C \vec{F}\cdot \vec{T}\,ds\]
-%     \end{itemize}
+    \begin{itemize}
+    \item Work is given by the product of force and displacement: \[W = \vec{F} \cdot \vec{D}\]
+    \item So work over a smooth curve can be approximated by the Riemann sum: \[W \approx \sum_{i=1}^n \vec{F}(x_i,y_i,z_i)\cdot\Delta\vec{r_i}\]
+    \item We limit this sum to infinity to define work over a smooth curve: \[W = \int\limits_C \vec{F}\cdot d\vec{r}\]
+    \end{itemize}
     
-%   \item Flow
+  \item Flow
   
-%     \begin{itemize}
-%     \item The \textbf{flow} of a fluid flowing through a curve in space given by $\vec{r}(t)$ on $t\in[a,b]$ is defined to be the integral \[\textrm{Flow} = \int\limits_C \vec{F}\cdot d\vec{r} = \int\limits_C \vec{F}\cdot\vec{v}\,dt = \int\limits_C \vec{F}\cdot \vec{T}\,ds\] where $\vec{F}$ is the velocity fluid of the fluid.
-%     \item If $C$ is closed (its starting point and ending point are the same), then the flow is also known as the \textbf{circulation}.
-%     \end{itemize}
+    \begin{itemize}
+    \item The \textbf{flow} of a fluid along a curve $C$ is defined to be the line integral \[\textrm{Flow} = \int\limits_C \vec{F}\cdot d\vec{r} \]
+    \item If $C$ is closed (its starting point and ending point are the same), then the flow is also known as the \textbf{circulation}.
+    \end{itemize}
     
-%   \newpage
+  \newpage
     
-%   \item Flux
+  \item Flux
   
-%     \begin{itemize}
-%     \item If $\vec{n}(x,y)$ is the outward unit vector normal to a closed plane curve C at $(x,y)$ and $\vec{F}(x,y)$ is a planar vector field, the \textbf{flux} of $\vec{F}$ across $C$ is \[\int\limits_C \vec{F}\cdot\vec{n}\,ds\]
-%     \item If $\vec{F}(x,y)=\<M,N\>$ and the direction traveled around $C$ is counter-clockwise, then \[\int\limits_C \vec{F}\cdot\vec{n}\dvar{s} = \int\limits_C \vec{F}\cdot(\veck\times\vec{T})\dvar{s} \]\[= \int\limits_C \<M,N\>\cdot\<\frac{dy}{ds},-\frac{dx}{ds}\>\dvar{s} = \int\limits_C M\dvar{y} - N\dvar{x}\]
-%     \end{itemize}
+    \begin{itemize}
+    \item If $\vec{n}(x,y)$ is the outward unit vector normal to a closed plane curve C at $(x,y)$ and $\vec{F}(x,y)$ is a planar vector field, the \textbf{flux} of $\vec{F}$ across $C$ is \[\int\limits_C \vec{F}\cdot\vec{n}\,ds\]
+    \item If $\vec{F}(x,y)=\<M,N\>$ and the direction traveled around $C$ is counter-clockwise, then \[\int\limits_C \vec{F}\cdot\vec{n}\dvar{s} = \int\limits_C \vec{F}\cdot(\veck\times\vec{T})\dvar{s} \]\[= \int\limits_C \<M,N\>\cdot\<\frac{dy}{ds},-\frac{dx}{ds}\>\dvar{s} = \int\limits_C M\dvar{y} - N\dvar{x}\]
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 14.2:}
+  \item \textbf{Suggested Exercises for 14.2:}
   
-%     \begin{itemize}
-%     \item Work over a curve: 7-22
-%     \item Circulation, flow, and flux: 23-28, 37-40
-%     \end{itemize}
+    \begin{itemize}
+    \item Work over a curve: 7-22
+    \item Circulation, flow, and flux: 23-28, 37-40
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.3 Path Independence, Potential Functions, and Conservative Fields}
+  \centerline{\bf 14.3 Path Independence, Potential Functions, and Conservative Fields}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Technical Assumptions on Curves and Regions for this section
+  \item Technical Assumptions on Curves and Regions for this section
   
-%     \begin{itemize}
-%     \item We make certain assumptions on curves, fields, and regions in this section, which are required for the results to hold.
-%       \begin{itemize}
-%       \item All curves are \textbf{piecewise smooth}: they are composed of finite smooth pieces joined end-to-end.
-%       \item All vector fields have components with continuous first partial derivatives.
-%       \item Regions $D$ are \textbf{simply connected}: a simply connected region is a single piece with no holes.
-%       \end{itemize}
-%     \end{itemize}
+    \begin{itemize}
+    \item We make certain assumptions on curves, fields, and regions in this section, which are required for the results to hold.
+      \begin{itemize}
+      \item All curves are \textbf{piecewise smooth}: they are composed of finite smooth pieces joined end-to-end.
+      \item All vector fields have components with continuous first partial derivatives.
+      \item Regions $D$ are \textbf{simply connected}: a simply connected region is a single piece with no holes.
+      \end{itemize}
+    \end{itemize}
     
-%   \item Several Equivalencies for Conservative Fields
-%     \begin{itemize}
-%     \item \textbf{The following are all equivalent:}
-%       \begin{itemize}
-%       \item $\vec{F}=\<M,N,P\>$ is a \textbf{conservative field} on $D$.
-%       \item $\int\vec{F}\cdot d\vec{r}$ is \textbf{path independent} in $D$.
-%         \begin{itemize}
-%         \item This means that the value of $\int_C\vec{F}\cdot d\vec{r}$ only depends on the endpoints of the curve $C$.
-%         \end{itemize}
-%       \item There exists a \textbf{potential function} $f$ for $\vec{F}$.
-%         \begin{itemize}
-%         \item This means that $\nabla f = \vec{F}$.
-%         \end{itemize}
-%       \item (Closed Loop Property of Conservative Fields)\newline $\ds \int_C \vec{F} \cdot d\vec{r} = 0$ for every closed loop $C$ in $D$. 
-%       \item (Fundamental Theorem of Line Integrals)\newline $\ds \int_C \vec{F} \cdot d\vec{r} = f(B)-f(A)$ for every path $C$ in $D$ connecting $A$ to $B$. 
-%       \item $M\,dx+N\,dy+P\,dz$ is \textbf{exact}.
-%         \begin{itemize}
-%         \item This means that there exists a function $f$ such that $M\,dx+N\,dy+P\,dz = f_x\,dx+f_y\,dy+f_z\,dz$.
-%         \end{itemize}
-%       \item (Component Test for Conservative Fields)\newline $\ds \frac{\partial P}{\partial y}=\frac{\partial N}{\partial z},\,\frac{\partial M}{\partial z}=\frac{\partial P}{\partial x},\text{ and }\frac{\partial N}{\partial x}=\frac{\partial N}{\partial y}$. 
-%       \end{itemize}
-%     \end{itemize}
-%   \newpage      
-%   \item \textbf{Suggested Exercises for 14.3:}
+  \item Several Equivalencies for Conservative Fields
+    \begin{itemize}
+    \item \textbf{The following are all equivalent:}
+      \begin{itemize}
+      \item $\vec{F}=\<M,N,P\>$ is a \textbf{conservative field} on $D$.
+      \item $\int\vec{F}\cdot d\vec{r}$ is \textbf{path independent} in $D$.
+        \begin{itemize}
+        \item This means that the value of $\int_C\vec{F}\cdot d\vec{r}$ only depends on the endpoints of the curve $C$.
+        \end{itemize}
+      \item There exists a \textbf{potential function} $f$ for $\vec{F}$.
+        \begin{itemize}
+        \item This means that $\nabla f = \vec{F}$.
+        \end{itemize}
+      \item (Closed Loop Property of Conservative Fields)\newline $\ds \int_C \vec{F} \cdot d\vec{r} = 0$ for every closed loop $C$ in $D$. 
+      \item (Fundamental Theorem of Line Integrals)\newline $\ds \int_C \vec{F} \cdot d\vec{r} = f(B)-f(A)$ for every path $C$ in $D$ connecting $A$ to $B$. 
+      \item $M\,dx+N\,dy+P\,dz$ is \textbf{exact}.
+        \begin{itemize}
+        \item This means that there exists a function $f$ such that $M\,dx+N\,dy+P\,dz = f_x\,dx+f_y\,dy+f_z\,dz$.
+        \end{itemize}
+      \item (Component Test for Conservative Fields)\newline $\ds \frac{\partial P}{\partial y}=\frac{\partial N}{\partial z},\,\frac{\partial M}{\partial z}=\frac{\partial P}{\partial x},\text{ and }\frac{\partial N}{\partial x}=\frac{\partial N}{\partial y}$. 
+      \end{itemize}
+    \end{itemize}
+  \newpage      
+  \item \textbf{Suggested Exercises for 14.3:}
   
-%     \begin{itemize}
-%     \item Determining if a field is conservative: 1-6
-%     \item Finding potential functions: 7-12
-%     \item Evaluating integrals of differential forms: 13-22
-%     \end{itemize}
+    \begin{itemize}
+    \item Determining if a field is conservative: 1-6
+    \item Finding potential functions: 7-12
+    \item Evaluating integrals of differential forms: 13-22
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.4 Green's Theorem in the Plane}
+  \centerline{\bf 14.4 Green's Theorem in the Plane}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Gradient Operator
+  \item Gradient Operator
   
-%     \begin{itemize}
-%     \item Recall that the gradient vector is defined to be \[\nabla f = \<\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\>\]
-%     \item We may also think of it as the scalar multiplication of $f$ with the \textbf{gradient operator} \[\nabla = \<\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\>\]
-%     \end{itemize}
+    \begin{itemize}
+    \item Recall that the gradient vector is defined to be \[\nabla f = \<\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\>\]
+    \item We may also think of it as the scalar multiplication of $f$ with the \textbf{gradient operator} \[\nabla = \<\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\>\]
+    \end{itemize}
     
-%   \item Divergence
+  \item Divergence
   
-%     \begin{itemize}
-%     \item The \textbf{divergence} of a planar vector field $\vec{F}=\<M,N\>$ is given by \[ \div \vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y} = \nabla\cdot\vec{F} \]
-%     \item Intuitively, divergence measures the tendency of ``nearby'' vectors in the field pointing away from the point.
-%     \item In physics, divergence is often called the \textbf{flux density}.
-%     \end{itemize}
+    \begin{itemize}
+    \item The \textbf{divergence} of a planar vector field $\vec{F}=\<M,N\>$ is given by \[ \div \vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y} = \nabla\cdot\vec{F} \]
+    \item Intuitively, divergence measures the tendency of ``nearby'' vectors in the field pointing away from the point.
+    \item In physics, divergence is often called the \textbf{flux density}.
+    \end{itemize}
   
-%   \item Spin
+  \item Spin
   
-%     \begin{itemize}
-%     \item The \textbf{spin} of a planar vector field $\vec{F}=\<M,N\>$ is given by \[ \spin \vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y} \]
-%     \item Intuitively, spin measures the tendency of ``nearby'' vectors in the field to turn counter-clockwise around the point.
-%     \item In physics, spin is often called the \textbf{circulation density}.
-%     \item Spin is also the \textbf{$\veck$-component of curl}, defined in a later section.
-%     \end{itemize}
+    \begin{itemize}
+    \item The \textbf{spin} of a planar vector field $\vec{F}=\<M,N\>$ is given by \[ \spin \vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y} \]
+    \item Intuitively, spin measures the tendency of ``nearby'' vectors in the field to turn counter-clockwise around the point.
+    \item In physics, spin is often called the \textbf{circulation density}.
+    \item Spin is also the \textbf{$\veck$-component of curl}, defined in a later section.
+    \end{itemize}
     
-%   \item Simple Curves
-%     \begin{itemize}
-%     \item A curve which does not cross itself is said to be \textbf{simple}.
-%     \end{itemize}
-%   \newpage
-%   \item Green's Theorem in the Plane
-%     \begin{itemize}
-%     \item There are two forms of Green's Theorem. They both start the same way:
-%     \item Let $C$ be a piecewise smooth, simple closed curve enclosing the region $R$ and oriented counter-clockwise. Let $\vec{F}=\<M,N\>$ be a vector field for which $M,N$ have continuous first partial derivatives in an open region containing $R$.
-%     \item \textbf{Flux-Divergence Form}
-%       \begin{itemize}
-%       \item The flux across $C$ equals the double integral of the divergence of $\vec{F}$ over $R$. That is, \[\int\limits_C \vec{F}\cdot\vec{n}\,ds = \iint\limits_R \div \vec{F}\dvar{A}\]
-%       \item Intuitively, this is true because the total flux measuring how vectors leave the curve is related to the total divergence of vectors within the curve.
-%       \end{itemize}
-%     \item \textbf{Circulation-Spin or Circulation-Curl Form}
-%       \begin{itemize}
-%       \item The counter-clockwise circulation around $C$ equals the double integral of the spin of $\vec{F}$ over $R$. That is, \[\int\limits_C \vec{F}\cdot\vec{T}\dvar{s} = \iint\limits_R \spin \vec{F}\dvar{A}\]
-%       \item Intuitively, this is true because the total circulation measuring how vectors traverse the curve counter-clockwise is related to the total counter-clockwise spin of vectors within the curve.
-%       \end{itemize}
-%     \end{itemize}
+  \item Simple Curves
+    \begin{itemize}
+    \item A curve which does not cross itself is said to be \textbf{simple}.
+    \end{itemize}
+  \newpage
+  \item Green's Theorem in the Plane
+    \begin{itemize}
+    \item There are two forms of Green's Theorem. They both start the same way:
+    \item Let $C$ be a piecewise smooth, simple closed curve enclosing the region $R$ and oriented counter-clockwise. Let $\vec{F}=\<M,N\>$ be a vector field for which $M,N$ have continuous first partial derivatives in an open region containing $R$.
+    \item \textbf{Flux-Divergence Form}
+      \begin{itemize}
+      \item The flux across $C$ equals the double integral of the divergence of $\vec{F}$ over $R$. That is, \[\int\limits_C \vec{F}\cdot\vec{n}\,ds = \iint\limits_R \div \vec{F}\dvar{A}\]
+      \item Intuitively, this is true because the total flux measuring how vectors leave the curve is related to the total divergence of vectors within the curve.
+      \end{itemize}
+    \item \textbf{Circulation-Spin or Circulation-Curl Form}
+      \begin{itemize}
+      \item The counter-clockwise circulation around $C$ equals the double integral of the spin of $\vec{F}$ over $R$. That is, \[\int\limits_C \vec{F}\cdot\vec{T}\dvar{s} = \iint\limits_R \spin \vec{F}\dvar{A}\]
+      \item Intuitively, this is true because the total circulation measuring how vectors traverse the curve counter-clockwise is related to the total counter-clockwise spin of vectors within the curve.
+      \end{itemize}
+    \end{itemize}
     
-%   \item \textbf{Suggested Exercises for 14.4:}
+  \item \textbf{Suggested Exercises for 14.4:}
   
-%     \begin{itemize}
-%     \item Using Green's Theorem to find circulation and flux: 5-14
-%     \item Using Green's Theorem to evaluate line integrals: 17-20
-%     \end{itemize}
+    \begin{itemize}
+    \item Using Green's Theorem to find circulation and flux: 5-14
+    \item Using Green's Theorem to evaluate line integrals: 17-20
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.5 Surfaces and Area}
+  \centerline{\bf 14.5 Surfaces and Area}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Parametrization of Surfaces
+  \item Parametrization of Surfaces
   
-%     \begin{itemize}
-%     \item Just as we can define a vector function \[\vec{r}(t)=\<x(t),y(t),z(t)\>\] to describe a curve in space, we may define a vector function \[\vec{r}(u,v)=\<x(u,v),y(u,v),z(u,v)\>\] to describe a surface in space.
-%     \item The functions $x(u,v)$, $y(u,v)$, $z(u,v)$ are said to \textbf{parametrize} the surface.
-%     \end{itemize}
+    \begin{itemize}
+    \item Just as we can define a vector function \[\vec{r}(t)=\<x(t),y(t),z(t)\>\] to describe a curve in space, we may define a vector function \[\vec{r}(u,v)=\<x(u,v),y(u,v),z(u,v)\>\] to describe a surface in space.
+    \item The functions $x(u,v)$, $y(u,v)$, $z(u,v)$ are said to \textbf{parametrize} the surface.
+    \end{itemize}
     
-%   \item Vector Function Partial Derivatives and Smooth Vector Functions
+  \item Vector Function Partial Derivatives and Smooth Vector Functions
   
-%     \begin{itemize}
-%     \item The partial derivative $\vec{r}_u=\frac{\partial \vec{r}}{\partial u}$ of the vector function $\vec{r}(u,v)$ is given by \[\vec{r}_u=\<x_u,y_u,z_u\>\]
-%     \item Similarly, \[\vec{r}_v=\<x_v,y_v,z_v\>\]
-%     \item A surface parametrized by $\vec{r}(u,v)$ is called \textbf{smooth} if $\vec{r}_u,$ $\vec{r}_v$ are continuous and $\vec{r}_u\times\vec{r}_v\not= \vec{0}$ on the interior of the surface. 
-%     \end{itemize}
+    \begin{itemize}
+    \item The partial derivative $\vec{r}_u=\frac{\partial \vec{r}}{\partial u}$ of the vector function $\vec{r}(u,v)$ is given by \[\vec{r}_u=\<x_u,y_u,z_u\>\]
+    \item Similarly, \[\vec{r}_v=\<x_v,y_v,z_v\>\]
+    \item A surface parametrized by $\vec{r}(u,v)$ is called \textbf{smooth} if $\vec{r}_u,$ $\vec{r}_v$ are continuous and $\vec{r}_u\times\vec{r}_v\not= \vec{0}$ on the interior of the surface. 
+    \end{itemize}
     
-%   \item Surface Area of a Parametrized Surface
+  \item Surface Area of a Parametrized Surface
   
-%     \begin{itemize}
-%     \item The area of a smooth surface with parametrizing vector function $\vec{r}(u,v)$ for a region $R$ in the $uv$ plane is given by \[A = \iint\limits_R |\vec{r}_u\times\vec{r}_v|\,dA\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The area of a smooth surface with parametrizing vector function $\vec{r}(u,v)$ for a region $R$ in the $uv$ plane is given by \[A = \iint\limits_R |\vec{r}_u\times\vec{r}_v|\,dA\]
+    \end{itemize}
     
-%   \item Implicit Surface
+  \item Implicit Surface
   
-%     \begin{itemize}
-%     \item Level surfaces $F(x,y,z)=c$ are sometimes called \textbf{implicit surfaces} because they don't always have a nice parametrization.
-%     \item It can be found that, if $\vec{p}$ is a unit vector normal a coordinate plane, then the surface area defined by $F(x,y,z)$ bounded by the cylinder given by a region $R$ in that coordinate plane is \[\iint\limits_R \frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
-%     \end{itemize}
+    \begin{itemize}
+    \item Level surfaces $F(x,y,z)=c$ are sometimes called \textbf{implicit surfaces} because they don't always have a nice parametrization.
+    \item It can be found that, if $\vec{p}$ is a unit vector normal a coordinate plane, then the surface area defined by $F(x,y,z)$ bounded by the cylinder given by a region $R$ in that coordinate plane is \[\iint\limits_R \frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
+    \end{itemize}
     
-%   \item Surface Area Differential
+  \item Surface Area Differential
   
-%     \begin{itemize}
-%     \item The integral $\iint\limits_S\, d\sigma$ is used to represent surface area, and $d\sigma$ is known as the surface area differential.
-%     \item Thus we have, for parametrized surfaces given by $\vec{r}(u,v)$: \[d\sigma = |\vec{r}_u\times\vec{r}_v|\,dA\] and for implicit surfaces given by a  level surface $F(x,y,z)=c$: \[d\sigma = \frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The integral $\iint\limits_S\, d\sigma$ is used to represent surface area, and $d\sigma$ is known as the surface area differential.
+    \item Thus we have, for parametrized surfaces given by $\vec{r}(u,v)$: \[d\sigma = |\vec{r}_u\times\vec{r}_v|\,dA\] and for implicit surfaces given by a  level surface $F(x,y,z)=c$: \[d\sigma = \frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 14.5:}
+  \item \textbf{Suggested Exercises for 14.5:}
   
-%     \begin{itemize}
-%     \item Finding parametrizations of surfaces: 1-16
-%     \item Finding surface area: 17-26
-%     \end{itemize}
+    \begin{itemize}
+    \item Finding parametrizations of surfaces: 1-16
+    \item Finding surface area: 17-26
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.6 Surface Integrals and Flux}
+  \centerline{\bf 14.6 Surface Integrals and Flux}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Surface Integrals
+  \item Surface Integrals
   
-%     \begin{itemize}
-%     \item The \textbf{surface integral} of a function $G(x,y,z)$ over a surface $S$ is given by \[\iint\limits_S G(x,y,z)\,d\sigma\]
+    \begin{itemize}
+    \item The \textbf{surface integral} of a function $G(x,y,z)$ over a surface $S$ is given by \[\iint\limits_S G(x,y,z)\,d\sigma\]
     
-%     \item This integral may be computed by parametrizing $S$ with \[\vec{r}(u,v)=\<x(u,v),y(u,v),z(u,v)\>\] for $(u,v)\in R$ and evaluating \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x(u,v),y(u,v),z(u,v)) |\vec{r}_u\times \vec{r}_v|\,dA \]
+    \item This integral may be computed by parametrizing $S$ with \[\vec{r}(u,v)=\<x(u,v),y(u,v),z(u,v)\>\] for $(u,v)\in R$ and evaluating \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x(u,v),y(u,v),z(u,v)) |\vec{r}_u\times \vec{r}_v|\,dA \]
     
-%     \item Or, if $S$ is given by $F(x,y,z)=c$ with a shadow $R$ in a coordinate plane normal to the unit vector $\vec{p}$, the surface integral can be evaluated using \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x,y,z)\frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
-%     \end{itemize}
+    \item Or, if $S$ is given by $F(x,y,z)=c$ with a shadow $R$ in a coordinate plane normal to the unit vector $\vec{p}$, the surface integral can be evaluated using \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x,y,z)\frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
+    \end{itemize}
     
-%   \item Orientable Surfaces
-%     \begin{itemize}
-%     \item A surface is said to be \textbf{orientable} if it is ``two-sided''. More technically, it is orientable if there exists a continuous normal unit vector field $\vec{n}$ to the surface.
-%     \item An real-life example of a non-orientable surface is the Mobius strip formed by twisting a strip of paper together once and taping its ends together.
-%     \end{itemize}
+  \item Orientable Surfaces
+    \begin{itemize}
+    \item A surface is said to be \textbf{orientable} if it is ``two-sided''. More technically, it is orientable if there exists a continuous normal unit vector field $\vec{n}$ to the surface.
+    \item An real-life example of a non-orientable surface is the Mobius strip formed by twisting a strip of paper together once and taping its ends together.
+    \end{itemize}
     
-%   \item Flux in Three Dimensions
+  \item Flux in Three Dimensions
   
-%     \begin{itemize}
-%     \item The flux of a three dimensional vector field $\vec{F}$ across an oriented surface $S$ in the direction of $\vec{n}$ is given by the surface integral \[\iint\limits_S \vec{F}\cdot\vec{n}\,d\sigma\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The flux of a three dimensional vector field $\vec{F}$ across an oriented surface $S$ in the direction of $\vec{n}$ is given by the surface integral \[\iint\limits_S \vec{F}\cdot\vec{n}\,d\sigma\]
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 14.6:}
+  \item \textbf{Suggested Exercises for 14.6:}
   
-%     \begin{itemize}
-%     \item Evaluating surface integrals: 1-14
-%     \item Three-dimensional flux: 15-24
-%     \end{itemize}
+    \begin{itemize}
+    \item Evaluating surface integrals: 1-14
+    \item Three-dimensional flux: 15-24
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.7 Stokes' Theorem}
+  \centerline{\bf 14.7 Stokes' Theorem}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Curl
-%     \begin{itemize}
-%     \item The \textbf{curl} of a vector field $\vec{F}$ is defined as \[\textrm{curl}\,\vec{F} = \nabla \times \vec{F}\]
-%     \item Expanding this cross product, we see \[\textrm{curl}\,\vec{F} = \<\frac{\partial P}{\partial y}-\frac{\partial N}{\partial z},\frac{\partial M}{\partial z}-\frac{\partial P}{\partial x},\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\>\]
-%     \item Recalling that, for a vector field in the $xy$ plane ($z=0$), \[\textrm{spin}\,\vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\] we see that the curl vector measures the vector field's spin about that point on the planes parallel to $x=0$, $y=0$, and $z=0$ respectively.
-%     \end{itemize}
+  \item Curl
+    \begin{itemize}
+    \item The \textbf{curl} of a vector field $\vec{F}$ is defined as \[\textrm{curl}\,\vec{F} = \nabla \times \vec{F}\]
+    \item Expanding this cross product, we see \[\textrm{curl}\,\vec{F} = \<\frac{\partial P}{\partial y}-\frac{\partial N}{\partial z},\frac{\partial M}{\partial z}-\frac{\partial P}{\partial x},\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\>\]
+    \item Recalling that, for a vector field in the $xy$ plane ($z=0$), \[\textrm{spin}\,\vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\] we see that the curl vector measures the vector field's spin about that point on the planes parallel to $x=0$, $y=0$, and $z=0$ respectively.
+    \end{itemize}
   
-%   \item Stokes' Theorem
+  \item Stokes' Theorem
   
-%     \begin{itemize}
-%     \item Recall that the counter-clockwise circulation about a curve $C$ in the plane bounding the region $R$ can be computed by \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_R \textrm{spin}\,\vec{F}\,dA\]
-%     \item Noting that in $\mathbb{R}^2$ \[\textrm{spin}\,\vec{F} = \textrm{curl}\,\vec{F}\cdot \veck = \nabla \times \vec{F} \cdot \veck\] in $\mathbb{R}^3$ we may define the counterclockwise spin with respect to the vector $\vec{v}$ to be \[\textrm{spin}_{\vec{v}}\,\vec{F} = \textrm{curl}\,\vec{F} \cdot \vec{v} = \nabla \times \vec{F} \cdot \vec{v}\]
-%     \item If a curve $C$ in $\mathbb{R}^3$ is the boundary of a surface $S$, and we want to compute the counter-clockwise circulation with respect to unit normal vectors $\vec{n}$ on the surface, we may use \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma = \iint\limits_S (\textrm{curl}\,\vec{F} \cdot \vec{n})\,d\sigma = \iint\limits_S \nabla \times \vec{F} \cdot \vec{n}\,d\sigma\] 
-%     \end{itemize}
+    \begin{itemize}
+    \item Recall that the counter-clockwise circulation about a curve $C$ in the plane bounding the region $R$ can be computed by \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_R \textrm{spin}\,\vec{F}\,dA\]
+    \item Noting that in $\mathbb{R}^2$ \[\textrm{spin}\,\vec{F} = \textrm{curl}\,\vec{F}\cdot \veck = \nabla \times \vec{F} \cdot \veck\] in $\mathbb{R}^3$ we may define the counterclockwise spin with respect to the vector $\vec{v}$ to be \[\textrm{spin}_{\vec{v}}\,\vec{F} = \textrm{curl}\,\vec{F} \cdot \vec{v} = \nabla \times \vec{F} \cdot \vec{v}\]
+    \item If a curve $C$ in $\mathbb{R}^3$ is the boundary of a surface $S$, and we want to compute the counter-clockwise circulation with respect to unit normal vectors $\vec{n}$ on the surface, we may use \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma = \iint\limits_S (\textrm{curl}\,\vec{F} \cdot \vec{n})\,d\sigma = \iint\limits_S \nabla \times \vec{F} \cdot \vec{n}\,d\sigma\] 
+    \end{itemize}
     
-%   \item Identities and Properties
+  \item Identities and Properties
   
-%     \begin{itemize}
-%     \item Due to the Mixed Derivative Theorem, \[\textrm{curl}\, \nabla f = \nabla \times \nabla f = \vec{0}\]
-%     \item If $\nabla \times \vec{F} = \vec{0}$ for every point in a region $D$, then \[ \int\limits_C \vec{F}\cdot d\vec{r} = \iint\limits_S \nabla \times \vec{F} \cdot \vec{n}\,d\sigma = 0\] for every curve $C$ and surface $S$ within $D$.
-%     \end{itemize}
+    \begin{itemize}
+    \item Due to the Mixed Derivative Theorem, \[\textrm{curl}\, \nabla f = \nabla \times \nabla f = \vec{0}\]
+    \item If $\nabla \times \vec{F} = \vec{0}$ for every point in a region $D$, then \[ \int\limits_C \vec{F}\cdot d\vec{r} = \iint\limits_S \nabla \times \vec{F} \cdot \vec{n}\,d\sigma = 0\] for every curve $C$ and surface $S$ within $D$.
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 14.7:}
+  \item \textbf{Suggested Exercises for 14.7:}
   
-%     \begin{itemize}
-%     \item Using Stokes' Theorem: 1-10
-%     \end{itemize}
+    \begin{itemize}
+    \item Using Stokes' Theorem: 1-10
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
   
-%   \newpage
+  \newpage
   
-%   \centerline{\bf 14.8 Divergence Theorem and a Unified Theory}
+  \centerline{\bf 14.8 Divergence Theorem and a Unified Theory}
   
-%   \begin{itemize}
+  \begin{itemize}
     
-%   \item Divergence Theorem
+  \item Divergence Theorem
   
-%     \begin{itemize}
-%     \item Divergence in $\mathbb{R}^2$ was defined as \[ \textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y} = \nabla \cdot \vec{F} \] and is defined in $\mathbb{R}^3$ as \[\textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y}+\frac{\partial P}{\partial z} = \nabla \cdot \vec{F} \]
-%     \item In both cases it measures the tendency of the vector field to point outward from a point.
-%     \item The Divergence Theorem lets us measure the flux on a closed surface $S$ by integrating over the divergence within its bounded region $D$: \[\text{Flux} = \iint\limits_S \vec{F}\cdot\vec{n}\,d\sigma = \iiint\limits_D \textrm{div}\,\vec{F}\,dV= \iiint\limits_D \nabla\cdot\vec{F}\,dV\]
-%     \end{itemize}
+    \begin{itemize}
+    \item Divergence in $\mathbb{R}^2$ was defined as \[ \textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y} = \nabla \cdot \vec{F} \] and is defined in $\mathbb{R}^3$ as \[\textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y}+\frac{\partial P}{\partial z} = \nabla \cdot \vec{F} \]
+    \item In both cases it measures the tendency of the vector field to point outward from a point.
+    \item The Divergence Theorem lets us measure the flux on a closed surface $S$ by integrating over the divergence within its bounded region $D$: \[\text{Flux} = \iint\limits_S \vec{F}\cdot\vec{n}\,d\sigma = \iiint\limits_D \textrm{div}\,\vec{F}\,dV= \iiint\limits_D \nabla\cdot\vec{F}\,dV\]
+    \end{itemize}
     
-%   \item The Unified Theory
+  \item The Unified Theory
   
-%     \begin{itemize}
-%     \item The unified theory notes that in order to compute circulation and flux over a closed curve or surface, we may consider the spin/curl and divergence over the region bounded by that curve or surface.
-%     \item Let $C$ be a counter-clockwise closed curve in $\mathbb{R}^2$ bounding the region $R$.
-%       \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_R \textrm{spin}\,\vec{F}\,dA = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \veck\,dA\]
-%       \[\text{Flux of } \vec{F} \text{ across } C = \iint\limits_R \textrm{div}\,\vec{F}\,dA\]
-%     \item Let $C$ be a closed curve in $\mathbb{R}^3$ counter-clockwise to $\vec{n}$ bounding the surface $S$.
-%       \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma  = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \vec{n}\,d\sigma\]
-%     \item Let $S$ be a closed surface in $\mathbb{R}^3$ bounding the solid $D$.
-%       \[\text{Flux of } \vec{F} \text{ across } S = \iiint\limits_D \textrm{div}\,\vec{F}\,dV\]
-%     \end{itemize}
+    \begin{itemize}
+    \item The unified theory notes that in order to compute circulation and flux over a closed curve or surface, we may consider the spin/curl and divergence over the region bounded by that curve or surface.
+    \item Let $C$ be a counter-clockwise closed curve in $\mathbb{R}^2$ bounding the region $R$.
+      \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_R \textrm{spin}\,\vec{F}\,dA = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \veck\,dA\]
+      \[\text{Flux of } \vec{F} \text{ across } C = \iint\limits_R \textrm{div}\,\vec{F}\,dA\]
+    \item Let $C$ be a closed curve in $\mathbb{R}^3$ counter-clockwise to $\vec{n}$ bounding the surface $S$.
+      \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma  = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \vec{n}\,d\sigma\]
+    \item Let $S$ be a closed surface in $\mathbb{R}^3$ bounding the solid $D$.
+      \[\text{Flux of } \vec{F} \text{ across } S = \iiint\limits_D \textrm{div}\,\vec{F}\,dV\]
+    \end{itemize}
         
-%   \item \textbf{Suggested Exercises for 14.8:}
+  \item \textbf{Suggested Exercises for 14.8:}
   
-%     \begin{itemize}
-%     \item Using the Divergence Theorem: 5-16
-%     \end{itemize}
+    \begin{itemize}
+    \item Using the Divergence Theorem: 5-16
+    \end{itemize}
     
-%   \end{itemize}
+  \end{itemize}
 
 \end{document}
 
