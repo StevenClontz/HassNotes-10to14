@@ -1895,17 +1895,17 @@ v_1 & v_2 \\
   \item Surface Integrals
   
     \begin{itemize}
-    \item The \textbf{surface integral} of a function $G(x,y,z)$ over a surface $S$ is given by \[\iint\limits_S G(x,y,z)\,d\sigma\]
-    
-    \item This integral may be computed by parametrizing $S$ with \[\vec{r}(u,v)=\<x(u,v),y(u,v),z(u,v)\>\] for $(u,v)\in R$ and evaluating \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x(u,v),y(u,v),z(u,v)) |\vec{r}_u\times \vec{r}_v|\,dA \]
-    
-    \item Or, if $S$ is given by $F(x,y,z)=c$ with a shadow $R$ in a coordinate plane normal to the unit vector $\vec{p}$, the surface integral can be evaluated using \[\iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x,y,z)\frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA\]
+    \item The \textbf{surface integral} of a function $G(x,y,z)$ over a surface $S$ is given by \[
+      \iint\limits_S G(x,y,z)\,d\sigma = \iint\limits_R G(x(u,v),y(u,v),z(u,v)) |\vec{r}_u\times \vec{r}_v|\,dA
+    \]
+    \[
+      = \iint\limits_R G(x,y,z)\frac{|\nabla F|}{|\nabla F \cdot \vec{p}|}\,dA
+      \]
     \end{itemize}
     
   \item Orientable Surfaces
     \begin{itemize}
-    \item A surface is said to be \textbf{orientable} if it is ``two-sided''. More technically, it is orientable if there exists a continuous normal unit vector field $\vec{n}$ to the surface.
-    \item An real-life example of a non-orientable surface is the Mobius strip formed by twisting a strip of paper together once and taping its ends together.
+    \item A surface is said to be \textbf{orientable} if it is ``two-sided'' - there exists a continuous normal unit vector field $\vec{n}$ to the surface.
     \end{itemize}
     
   \item Flux in Three Dimensions
@@ -1931,16 +1931,21 @@ v_1 & v_2 \\
     
   \item Curl
     \begin{itemize}
-    \item The \textbf{curl} of a vector field $\vec{F}$ is defined as \[\textrm{curl}\,\vec{F} = \nabla \times \vec{F}\]
-    \item Expanding this cross product, we see \[\textrm{curl}\,\vec{F} = \<\frac{\partial P}{\partial y}-\frac{\partial N}{\partial z},\frac{\partial M}{\partial z}-\frac{\partial P}{\partial x},\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\>\]
-    \item Recalling that, for a vector field in the $xy$ plane ($z=0$), \[\textrm{spin}\,\vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\] we see that the curl vector measures the vector field's spin about that point on the planes parallel to $x=0$, $y=0$, and $z=0$ respectively.
+    \item The \textbf{curl} of a vector field $\vec{F}$ is defined as \[\textrm{curl}\,\vec{F} = \nabla \times \vec{F} = \textrm{curl}\,\vec{F} = \<\frac{\partial P}{\partial y}-\frac{\partial N}{\partial z},\frac{\partial M}{\partial z}-\frac{\partial P}{\partial x},\frac{\partial N}{\partial x}-\frac{\partial M}{\partial y}\>\]
+    \item The counterclockwise spin with respect to a unit vector $\vec{u}$ is given by \[\textrm{spin}_{\vec{u}}\,\vec{F} = \textrm{curl}\,\vec{F} \cdot \vec{u} = \nabla \times \vec{F} \cdot \vec{u}\]
+    \item In particular, in 2D:
+      \[
+        \textrm{spin}\,\vec{F} = \frac{\partial N}{\partial x}-\frac{\partial M}{\partial y} = \textrm{spin}_\veck\,\vec{F}
+      \]
+    and in 3D:
+      \[
+        \textrm{curl}\,\vec{F} = \<\textrm{spin}_{\veci}\,\vec{F}, \textrm{spin}_{\vecj}\,\vec{F}, \textrm{spin}_{\veck}\,\vec{F}\>
+      \]
     \end{itemize}
   
   \item Stokes' Theorem
   
     \begin{itemize}
-    \item Recall that the counter-clockwise circulation about a curve $C$ in the plane bounding the region $R$ can be computed by \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_R \textrm{spin}\,\vec{F}\,dA\]
-    \item Noting that in $\mathbb{R}^2$ \[\textrm{spin}\,\vec{F} = \textrm{curl}\,\vec{F}\cdot \veck = \nabla \times \vec{F} \cdot \veck\] in $\mathbb{R}^3$ we may define the counterclockwise spin with respect to the vector $\vec{v}$ to be \[\textrm{spin}_{\vec{v}}\,\vec{F} = \textrm{curl}\,\vec{F} \cdot \vec{v} = \nabla \times \vec{F} \cdot \vec{v}\]
     \item If a curve $C$ in $\mathbb{R}^3$ is the boundary of a surface $S$, and we want to compute the counter-clockwise circulation with respect to unit normal vectors $\vec{n}$ on the surface, we may use \[\int\limits_C \vec{F}\cdot\vec{T}\,ds = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma = \iint\limits_S (\textrm{curl}\,\vec{F} \cdot \vec{n})\,d\sigma = \iint\limits_S \nabla \times \vec{F} \cdot \vec{n}\,d\sigma\] 
     \end{itemize}
     
@@ -1968,23 +1973,22 @@ v_1 & v_2 \\
   \item Divergence Theorem
   
     \begin{itemize}
-    \item Divergence in $\mathbb{R}^2$ was defined as \[ \textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y} = \nabla \cdot \vec{F} \] and is defined in $\mathbb{R}^3$ as \[\textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y}+\frac{\partial P}{\partial z} = \nabla \cdot \vec{F} \]
-    \item In both cases it measures the tendency of the vector field to point outward from a point.
+    \item Divergence in $\mathbb{R}^3$ is defined as \[\textrm{div}\,\vec{F} = \frac{\partial M}{\partial x}+\frac{\partial N}{\partial y}+\frac{\partial P}{\partial z} = \nabla \cdot \vec{F} \]
     \item The Divergence Theorem lets us measure the flux on a closed surface $S$ by integrating over the divergence within its bounded region $D$: \[\text{Flux} = \iint\limits_S \vec{F}\cdot\vec{n}\,d\sigma = \iiint\limits_D \textrm{div}\,\vec{F}\,dV= \iiint\limits_D \nabla\cdot\vec{F}\,dV\]
     \end{itemize}
     
-  \item The Unified Theory
+  % \item The Unified Theory
   
-    \begin{itemize}
-    \item The unified theory notes that in order to compute circulation and flux over a closed curve or surface, we may consider the spin/curl and divergence over the region bounded by that curve or surface.
-    \item Let $C$ be a counter-clockwise closed curve in $\mathbb{R}^2$ bounding the region $R$.
-      \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_R \textrm{spin}\,\vec{F}\,dA = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \veck\,dA\]
-      \[\text{Flux of } \vec{F} \text{ across } C = \iint\limits_R \textrm{div}\,\vec{F}\,dA\]
-    \item Let $C$ be a closed curve in $\mathbb{R}^3$ counter-clockwise to $\vec{n}$ bounding the surface $S$.
-      \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma  = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \vec{n}\,d\sigma\]
-    \item Let $S$ be a closed surface in $\mathbb{R}^3$ bounding the solid $D$.
-      \[\text{Flux of } \vec{F} \text{ across } S = \iiint\limits_D \textrm{div}\,\vec{F}\,dV\]
-    \end{itemize}
+  %   \begin{itemize}
+  %   \item The unified theory notes that in order to compute circulation and flux over a closed curve or surface, we may consider the spin/curl and divergence over the region bounded by that curve or surface.
+  %   \item Let $C$ be a counter-clockwise closed curve in $\mathbb{R}^2$ bounding the region $R$.
+  %     \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_R \textrm{spin}\,\vec{F}\,dA = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \veck\,dA\]
+  %     \[\text{Flux of } \vec{F} \text{ across } C = \iint\limits_R \textrm{div}\,\vec{F}\,dA\]
+  %   \item Let $C$ be a closed curve in $\mathbb{R}^3$ counter-clockwise to $\vec{n}$ bounding the surface $S$.
+  %     \[\text{Circulation of } \vec{F} \text{ around } C = \iint\limits_S \textrm{spin}_{\vec{n}}\,\vec{F}\,d\sigma  = \iint\limits_R \textrm{curl}\,\vec{F}\cdot \vec{n}\,d\sigma\]
+  %   \item Let $S$ be a closed surface in $\mathbb{R}^3$ bounding the solid $D$.
+  %     \[\text{Flux of } \vec{F} \text{ across } S = \iiint\limits_D \textrm{div}\,\vec{F}\,dV\]
+  %   \end{itemize}
         
   \item \textbf{Suggested Exercises for 14.8:}
   
