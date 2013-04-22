@@ -1746,11 +1746,14 @@ v_1 & v_2 \\
     
   \newpage
     
-  \item Flux
+  \item Flux (2D)
   
     \begin{itemize}
-    \item The \textbf{flux} of $\vec{F}$ across $C$ is \[\int\limits_C \vec{F}\cdot\vec{n}\,ds\] where $\vec{n}(x,y)$ is the outward unit normal vector to $C$.
-    \item If $C$ is oriented counter-clockwise, then \[\int\limits_C \vec{F}\cdot\vec{n}\dvar{s} = \int\limits_C \vec{F}\cdot(\veck\times\vec{T})\dvar{s} \]\[= \int\limits_C \<M,N\>\cdot\<\frac{dy}{ds},-\frac{dx}{ds}\>\dvar{s} = \int\limits_C M\dvar{y} - N\dvar{x}\]
+    \item The two-dimenstional \textbf{flux} of $\vec{F}$ across $C$ is \[\int\limits_C \vec{F}\cdot\vec{n}\,ds\] where $\vec{n}$ is the outward unit normal vector to $C$.
+    \item If $C$ is oriented counter-clockwise, then 
+      \[
+        \int\limits_C \vec{F}\cdot\vec{n}\dvar{s} = \int\limits_C M\dvar{y} - N\dvar{x} = \int\limits_{a}^{b} \left(M\frac{\dvar{y}}{\dvar{t}}-N\frac{\dvar{x}}{\dvar{t}}\right)\dvar{t}
+      \]
     \end{itemize}
         
   \item \textbf{Suggested Exercises for 14.2:}
