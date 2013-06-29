@@ -1,3 +1,6 @@
+This project is no longer being maintained as Auburn has switched to Stewart's text. A new project has
+been created to match: <http://github.com/StevenClontz/Stewart-12to16>
+
 calculus-3-hass-notes
 =====================
 
